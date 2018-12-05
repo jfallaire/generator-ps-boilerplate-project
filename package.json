@@ -1,10 +1,10 @@
 {
   "name": "generator-ps-boilerplate-project",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Scaffolds out a template directory structure to help out CoveoPS folks when starting off a new project for a customer.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jfallaire/generator-ps-boilerplate-project.git"
+    "url": "https://github.com/jfallaire/generator-ps-boilerplate-project.git"
   },
   "author": "jfallaire",
   "publishConfig": {
