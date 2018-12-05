@@ -1,0 +1,66 @@
+{
+  "name": "generator-ps-boilerplate-project",
+  "version": "1.0.0",
+  "description": "Scaffolds out a template directory structure to help out CoveoPS folks when starting off a new project for a customer.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfallaire/generator-ps-boilerplate-project.git"
+  },
+  "author": "jfallaire",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jfallaire/generator-ps-boilerplate-project/issues"
+  },
+  "homepage": "https://github.com/jfallaire/generator-ps-boilerplate-project#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@semantic-release/changelog": "^3.0.1",
+    "@semantic-release/commit-analyzer": "^6.1.0",
+    "@semantic-release/git": "^7.0.5",
+    "@semantic-release/npm": "^5.1.1",
+    "@semantic-release/release-notes-generator": "^7.1.4",
+    "babel-eslint": "^7.1.1",
+    "commitizen": "^3.0.5",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.2.0",
+    "semantic-release": "^15.12.4",
+    "semver": "^5.6.0",
+    "standard-version": "^4.4.0",
+    "travis-deploy-once": "^5.0.9"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "scripts": {
+    "commit": "npx git-cz",
+    "release": "standard-version -a",
+    "postrelease": "git push --follow-tags",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branch": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
+  },
+  "dependencies": {
+    "yeoman-generator": "^3.1.1"
+  }
+}
