@@ -3551,10 +3551,10 @@ generator-node@^2.5.0:
     validate-npm-package-name "^3.0.0"
     yeoman-generator "^3.1.1"
 
-generator-ps-iow@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/generator-ps-iow/-/generator-ps-iow-0.1.7.tgz#f880bcc9f0b6d84105866d937c93ad19817acd21"
-  integrity sha1-+IC8yfC22EEFhm2TfJOtGYF6zSE=
+generator-ps-iow@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/generator-ps-iow/-/generator-ps-iow-0.1.8.tgz#77a7bbf6c989ed572f428343bad4a65ee1514159"
+  integrity sha512-uZOcFAjeQWIPpGduQ1XiuV0TeS43Gl0QbebjYZ9bdHJWLRjcA0iAdFGdJCCO2f227O2FJ1qqGGk1X3GRYQjkZg==
   dependencies:
     chalk "^1.1.3"
     deep-extend "^0.4.1"
@@ -3566,10 +3566,10 @@ generator-ps-iow@^0.1.7:
     yeoman-generator "^1.1.0"
     yosay "^1.2.1"
 
-generator-ps-search-ui-sfdc@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/generator-ps-search-ui-sfdc/-/generator-ps-search-ui-sfdc-0.2.0.tgz#b28f9845a61544fdad791a6c3ba051e13ded6d52"
-  integrity sha512-nENMiKLth28QJ993vZn1bAJRNUlCosmuTJpEh9rk02+RuoX/7zcxD75R4knUeAZ+Faw6SUa+gm6PGHCiwr8k+Q==
+generator-ps-search-ui-sfdc@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/generator-ps-search-ui-sfdc/-/generator-ps-search-ui-sfdc-0.3.0.tgz#7c2c889d4363f848fe3169287428f3ee32d5a301"
+  integrity sha512-FVDa9WXxmiOgN7c4qactUFlcoFTJAOfUL+Tn587Ew0F9T4yqZP66JqlIXo8LCFgwivNGNemN0TiJKKWaVkWKDg==
   dependencies:
     chalk "^1.1.3"
     deep-extend "^0.4.1"
