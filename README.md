@@ -20,7 +20,7 @@ then run :
 
     npx -p yo -p generator-ps-boilerplate-project@latest -- yo ps-boilerplate-project
 
-![Interactive demo - customerABC](https://raw.githubusercontent.com/jfallaire/generator-ps-boilerplate-project/master/boilerplate-project.svg?sanitize=true)
+![Interactive demo - customerABC](https://coveojfallaire.bitbucket.io/generator-ps-boilerplate-project/boilerplate-project.svg)
 
 
 ### Creating a new project with npm <= 5.2
