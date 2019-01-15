@@ -69,6 +69,8 @@ module.exports = class extends Generator {
             templateObj
         );
 
+        mkdirp.sync(this.destinationPath('CoveoCloud'));
+
         this.composeWith(require.resolve('generator-ps-iow/generators/app'), {
             customer: this.props.customer,
             root: this.props.root
