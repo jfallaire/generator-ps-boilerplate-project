@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Pilot Search</title>
+  <meta about="Search all content at once." />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, height=device-height">
+  <script src="<%%=config.coveo_cdn%>/js/CoveoJsSearch.js"></script>
+  <script src="<%%=config.coveo_cdn%>/js/cultures/<%%=locale.language%>.js"></script>
+  <script src="<%%=config.coveo_cdn%>/js/templates/templatesNew.js"></script>
+
+  <script src="assets/js/cultures/<%%=locale.language%>.js"></script>
+  <script src="assets/js/<%= customerSafeName %>.bundle.js"></script>
+
+  <link rel="stylesheet" href="assets/styles/salesforce-lightning-design-system.css" />
+  <link rel="stylesheet" href="<%%=config.coveo_cdn%>/css/CoveoFullSearchNewDesign.css" />
+  <style>
+    .CoveoSearchInterface{
+      margin-top:54px;
+      background-color: #fff;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      Coveo.SearchEndpoint.configureCloudV2Endpoint('<%%- config.coveo_org_id %>', '<%%- token %>', '<%%- config.coveo_rest_uri -%>');
+      // Coveo.SearchEndpoint.endpoints['default'].options.queryStringArguments.viewAllContent = 'true';
+      Coveo.init(document.getElementById('search'), {});
+    })
+  </script>
+</head>
+
+<body lang="<%%=locale.language%>">
+  <%%- include('../utilities/globalHeader', {
+      title: title,
+      enableActionItems: true,
+      enableDeflectionActionItem: false
+  }); %>
+  <%%- include('../partials/full-search/search-interface'); %>
+</body>
+
+</html>

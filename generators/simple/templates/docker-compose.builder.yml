@@ -1,0 +1,17 @@
+version: '2'
+services:
+  node:
+    image: node:10-alpine
+    environment:
+      - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+    volumes:
+      - nodemodules_<%= customerSnakeCase %>:/usr/src/app/node_modules
+      - .:/usr/src/app/
+    working_dir: /usr/src/app/
+  install:
+    extends:
+      service: node
+    command: npm i
+volumes:
+  nodemodules_<%= customerSnakeCase %>:
+    external: true

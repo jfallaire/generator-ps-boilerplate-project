@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "sourceMap": true,
+    "skipLibCheck": true
+  },
+
+  "include": [
+    "node_modules/coveo-search-ui/lib/webpack/index.d.ts",
+    "node_modules/coveo-search-ui/bin/ts/CoveoJsSearch.d.ts",
+    "node_modules/coveo-search-ui/bin/ts/Externals.d.ts",
+    "src/**/*.ts"
+  ]
+}

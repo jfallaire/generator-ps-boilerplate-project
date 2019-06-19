@@ -1,0 +1,26 @@
+<style>
+  .menu__header {
+    padding: .5rem .75rem;
+    font-size: .75rem;
+    line-height: 1.25;
+    text-transform: uppercase;
+    letter-spacing: .0625em;
+    color: #54698d;
+    white-space: nowrap;
+  }
+</style>
+
+<div class="slds-dropdown slds-dropdown_right slds-nubbin_top-right" style="right:-1rem">
+  <ul class="slds-dropdown__list" role="menu">
+    <%% if(title) { %>
+      <li class="slds-dropdown__item menu__header"><span><%%=title%></span></li>
+    <%% } %>
+    <%% for (var i = 0; i < items.length; i++) { %>
+      <li class="slds-dropdown__item" role="presentation">
+        <a href="<%%-items[i].href%>" role="menuitem" tabindex="0">
+          <span class="slds-truncate" title="<%%-items[i].title%>"><%%=items[i].title%></span>
+        </a>
+      </li>
+    <%% } %>
+  </ul>
+</div>

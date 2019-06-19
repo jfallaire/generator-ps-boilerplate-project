@@ -1,0 +1,18 @@
+version: '3'
+services:
+  dev:
+    build: .
+    container_name: <%= customerSnakeCase %>-dev
+    image: <%= customerSnakeCase %>:dev
+    env_file: .env
+    volumes:
+      - nodemodules_<%= customerSnakeCase %>:/usr/src/app/node_modules
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    ports:
+      - ${SERVER_PORT}:3000
+      - ${IOW_SERVER_PORT}:${IOW_SERVER_PORT}
+      - ${KARMA_SERVER_PORT}:9876
+volumes:
+  nodemodules_<%= customerSnakeCase %>:
+    external: true
