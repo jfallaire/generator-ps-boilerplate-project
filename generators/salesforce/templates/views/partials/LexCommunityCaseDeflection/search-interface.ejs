@@ -1,0 +1,24 @@
+<div id="LexCommunityCaseDeflection" class="CoveoSearchInterface coveo-case-deflection" data-enable-history="false" data-design="new">
+  <div class="CoveoTriggers"></div>
+  <div class="Coveo<%= capitalizeCustomerSafeName %>Custo"></div>
+  <div class="CoveoFoldingForThread"></div>
+  <div class="CoveoCaseDeflection"></div>
+  <div class="CoveoAnalytics"></div>
+
+  <div class="coveo-main-section">
+    <div class="coveo-results-column">
+      <div class="CoveoErrorReport"></div>
+      <div class="coveo-result-layout-section">
+        <span class="CoveoResultLayout" data-mobile-layouts="card" data-tablet-layouts="list" data-desktop-layouts="list"></span>
+      </div>
+      <div class="CoveoResultList" data-layout="list" data-wait-animation="fade" data-auto-select-fields-to-include="false">
+        <div class="coveo-show-if-no-results">No information related to your case.</div>
+        <%%- include('../../templates/community/results-list-template.ejs'); %>
+      </div>
+      <div class="CoveoResultList" data-layout="card" data-wait-animation="fade" data-auto-select-fields-to-include="false">
+        <div class="coveo-show-if-no-results">No information related to your case.</div>
+        <%%- include('../../templates/community/results-card-template.ejs'); %>
+      </div>
+    </div>
+  </div>
+</div>

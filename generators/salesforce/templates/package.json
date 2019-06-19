@@ -1,0 +1,106 @@
+{
+    "name": "<%= customerSafeName %>",
+    "version": "1.0.0",
+    "description": "",
+    "dependencies": {
+        "dotenv-defaults": "^1.0.2",
+        "ejs": "^2.6.1",
+        "express-session": "^1.16.1"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^7.6.0",
+        "@commitlint/config-conventional": "^7.6.0",
+        "@salesforce-ux/design-system": "^2.8.3",
+        "@semantic-release/changelog": "^3.0.2",
+        "@semantic-release/commit-analyzer": "^6.1.0",
+        "@semantic-release/git": "^7.0.8",
+        "@semantic-release/npm": "^5.1.7",
+        "@semantic-release/release-notes-generator": "^7.1.4",
+        "@types/jasmine": "^3.3.12",
+        "@types/underscore": "^1.8.14",
+        "babel-eslint": "^10.0.1",
+        "clean-webpack-plugin": "^2.0.2",
+        "commitizen": "^3.1.1",
+        "coveo-search-ui": "2.5652.11",
+        "create-file-webpack": "^1.0.2",
+        "css-loader": "^2.1.1",
+        "cz-conventional-changelog": "^2.1.0",
+        "ejs-loader": "^0.3.3",
+        "extract-text-webpack-plugin": "^4.0.0-beta.0",
+        "fancy-log": "^1.3.3",
+        "file-loader": "^3.0.1",
+        "fs-extra": "^7.0.1",
+        "gulp": "^4.0.2",
+        "gulp-clean": "^0.4.0",
+        "gulp-rename": "^1.4.0",
+        "gulp-replace": "^1.0.0",
+        "gulp-transform": "^3.0.5",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^2.2.0",
+        "jasmine": "^3.4.0",
+        "js-beautify": "^1.10.0",
+        "karma": "^4.1.0",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-coverage": "^1.1.2",
+        "karma-jasmine": "^2.0.1",
+        "karma-mocha-reporter": "^2.2.5",
+        "karma-sourcemap-loader": "^0.3.7",
+        "karma-spec-reporter": "0.0.32",
+        "karma-webpack": "^4.0.0-rc.6",
+        "mini-css-extract-plugin": "^0.6.0",
+        "node-sass": "^4.12.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.1",
+        "puppeteer": "^1.16.0",
+        "sass-loader": "^7.1.0",
+        "semantic-release": "^15.13.12",
+        "semver": "^6.0.0",
+        "standard-version": "^6.0.1",
+        "style-loader": "^0.23.1",
+        "ts-loader": "^6.0.0",
+        "tslint": "^5.16.0",
+        "typescript": "~3.4.5",
+        "underscore": "^1.9.1",
+        "webpack": "^4.30.0",
+        "webpack-cli": "^3.3.2",
+        "webpack-dev-server": "^3.3.1",
+        "webpack-merge": "^4.2.1"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "npm test",
+            "pre-push": "npm test"
+        }
+    },
+    "scripts": {
+        "build": "gulp build",
+        "postbuild": "sfdx force:source:deploy -m StaticResource -u $SFDX_AUTH_JWT_ALIAS",
+        "dev": "webpack-dev-server --config webpack.dev.config.js",
+        "commit": "npx git-cz",
+        "release": "standard-version -a",
+        "postrelease": "git push --follow-tags",
+        "test": "npm run test:searchui && npm run test:extensions",
+        "test:searchui": "karma start karma.conf.js",
+        "test:extensions": "python -m unittest discover -s ./src/platform/extensionsTesting -v",
+        "iow:dev": "sphinx-autobuild -H $IOW_SERVER_IP_ADDRESS -p $IOW_SERVER_PORT -b html ./iow ./iow/_build/html",
+        "iow:build": "sphinx-build -b html ./iow ./dist/iow/html",
+        "semantic-release": "semantic-release",
+        "sfdx:deploy": "sfdx force:source:deploy -x ./manifest/package.xml -u $SFDX_AUTH_JWT_ALIAS",
+        "sfdx:retrieve": "sfdx force:source:retrieve -x ./manifest/package.xml -u $SFDX_AUTH_JWT_ALIAS"
+    },
+    "config": {
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    },
+    "release": {
+        "branch": "master",
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            "@semantic-release/changelog",
+            "@semantic-release/npm",
+            "@semantic-release/git"
+        ]
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%%=title%></title>
+  <meta about="Search all content at once." />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0,width=device-width, height=device-height">
+  <script src="<%%=config.coveo_cdn%>/js/CoveoJsSearch.js"></script>
+  <script src="<%%=config.coveo_cdn%>/js/cultures/<%%=locale.language%>.js"></script>
+
+  <script src="assets/js/lightning_search.bundle.min.js"></script>
+  <script src="assets/js/cultures/<%%=locale.language%>.js"></script>
+  <script src="assets/js/<%=customerSafeName%>.bundle.js"></script>
+
+  <link rel="stylesheet" href="assets/styles/salesforce-lightning-design-system.css" />
+  <link rel="stylesheet" href="<%%=config.coveo_cdn%>/css/CoveoFullSearchNewDesign.css" />
+  <style>
+  .CoveoV2CommunitySearchBox .coveo-first-loading-animation{display:none}.CoveoV2CommunitySearchBox .forcePlaceholder{display:none}.CoveoV2CommunitySearchBox.CoveoSearchInterface{display:block;z-index:1}.CoveoV2CommunitySearchBox input[type=text]:disabled{background:whitesmoke}.CoveoV2CommunitySearchBox .CoveoSearchButton{height:48px;float:right;background-color:white;border-right:none;border-bottom:none;border-top:none;border-left:1px solid #9e9e9e}.CoveoV2CommunitySearchBox .magic-box.magic-box-inline{overflow:visible}.CoveoV2CommunitySearchBox .magic-box{position:relative;text-align:left;color:#212121;border:1px solid #9e9e9e}.CoveoV2CommunitySearchBox .magic-box-input{background:#fff;height:48px;overflow:hidden;position:relative}.CoveoV2CommunitySearchBox .magic-box-input>input{color:#212121;text-align:left;padding:12px 0;text-indent:12px;font-family:arial,sans-serif;font-size:16px;line-height:24px;position:absolute;top:0;left:0;width:100%;height:48px;white-space:pre;overflow:auto;box-sizing:border-box;display:block;border:none}.CoveoV2CommunitySearchBox .magic-box-input>input::-moz-selection{background:#3390ff}.CoveoV2CommunitySearchBox .magic-box-input>input::selection{background:#3390ff}.CoveoV2CommunitySearchBox .magic-box-input>input::-moz-selection:window-inactive{background:#c2c3c4}.CoveoV2CommunitySearchBox .magic-box-input>input::selection:window-inactive{background:#c2c3c4}.CoveoV2CommunitySearchBox .magic-box .magic-box-clear .magic-box-icon:before{content:''}.CoveoV2CommunitySearchBox .magic-box .magic-box-clear:before{border-left-style:none}.CoveoV2CommunitySearchBox .magic-box .magic-box-icon{height:100%}.CoveoV2CommunitySearchBox .magic-box .magic-box-clear .magic-box-icon .magic-box-clear-svg{display:block;margin:16.5px;width:15px;height:15px;color:#1d4f76}.CoveoV2CommunitySearchBox#error{color:red;background:yellow;padding:2px;text-align:center;margin-top:5px;display:none}.CoveoV2CommunitySearchBox #errorTitle{font-weight:bold}
+  </style>
+
+  <link rel="stylesheet" href="assets/css/local.css" />
+  <link rel="stylesheet" href="assets/css/Lex_Coveo_CommunitySearchBox.css" />
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      Coveo.SearchEndpoint.configureCloudV2Endpoint('<%%- config.coveo_org_id %>', '<%%- token %>', '<%%- config.coveo_rest_uri -%>');
+      var searchboxRoot = document.getElementById('standaloneSearchbox');
+
+      Coveo.initSearchbox(searchboxRoot, 'Lex_Coveo_CommunitySearch', {
+        StandaloneSearchbox: {
+          placeholder: 'Enter your Model # or search term here.'
+        }
+      });
+    });
+
+  </script>
+  </script>
+  
+  <style>
+    #root {
+      margin-top:100px;
+    }
+  </style>
+</head>
+
+<body>
+  <%%- include('../utilities/globalHeader', {
+      title: title,
+      enableActionItems: true,
+      enableDeflectionActionItem: false
+  }); %>
+  <div id="root" lang="<%%=locale.language%>" class="THIS">
+    <%%- include('../partials/LexCommunitySearchBox/Lex_Coveo_CommunitySearchBox'); %>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+.CoveoSearchInterface {
+    font-family: $base-font-family;
+    font-size: $base-font-size * 1px;
+    background: #ffffff;
+}
+.CoveoSearchInterface .coveo-results-column {
+  padding: 44px 10px 75px 0;
+  width: 70%;
+  float: left;
+}
+.CoveoSearchInterface.coveo-small-facets .coveo-results-column {
+  padding: 0;
+  width:100%;
+}
+.CoveoSearchInterface .coveo-facet-column {
+  padding: 0;
+  margin: 0;
+  margin-left: 5%;
+  width: 25%;
+}
+
+.CoveoSearchInterface .coveo-search-section {
+    max-width: 100%;
+    margin:84px auto 47px;
+}
+
+.coveo-results-header {
+    padding-left: 16px;
+}
+
+@media (max-width: 480px) {
+    .CoveoSearchInterface .CoveoSearchbox {
+        margin-right: 0;
+    }
+}
+  

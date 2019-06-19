@@ -1,0 +1,47 @@
+.THIS {
+    @import './partials/base';
+    @import './partials/mixins';
+
+    @import './components/placeholder';
+    @import './components/trigger';
+    @import './components/results';
+    @import './components/pager';
+
+    @include localization();
+
+    font-family: $base-font-family;
+    font-size: $base-font-size * 1px;
+
+    .CoveoV2CaseDeflection.slds-card {
+      box-shadow: none;
+    }
+
+    .CoveoSearchInterface {
+      min-width: 200px;
+    }
+    
+    .CoveoV2CaseDeflection.slds-card .slds-card__header {
+      font-size: 1.5rem;
+      font-family: $base-font-family;
+      padding:0;
+      margin-bottom: 1rem;
+
+      h2 {
+        font-family: $base-font-family !important;
+      }
+
+      .slds-text-heading_small {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+
+    .CoveoResultList {
+      margin-top: 0px;
+    }
+    .CoveoPager{
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+    }
+}

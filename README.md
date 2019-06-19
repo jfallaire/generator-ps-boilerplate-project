@@ -1,6 +1,6 @@
 # generator-ps-boilerplate-project
 
-> Scaffolds out a template directory structure to help out CoveoPS folks when starting off a new project for a customer in order to standardize the work ethics over the course of a project by enforcing conventional commits standard and more. 
+> Scaffolds out a template directory structure to help out CoveoPS folks when starting off a new project for a customer in order to standardize the work ethics over the course of a project by enforcing conventional commits standard and run your project inside of a Docker container. 
 
 ![Solutions Specialist, you've been served!](https://i.imgflip.com/1jaox9.jpg)
 

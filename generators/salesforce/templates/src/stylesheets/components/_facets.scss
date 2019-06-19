@@ -1,0 +1,102 @@
+.CoveoFacet,
+.CoveoFacetRange,
+.CoveoFacetSlider,
+.CoveoHierarchicalFacet,
+.CoveoCategoryFacet,
+.CoveoTimespanFacet {
+  border: none;
+  margin: 50px 0;
+}
+
+.coveo-facet-header,
+.coveo-category-facet-header,
+.CoveoSearchInterface.coveo-small-facets .coveo-facet-column.coveo-facet-dropdown-content .CoveoFacet .coveo-facet-header, 
+.CoveoSearchInterface.coveo-small-facets .coveo-facet-column.coveo-facet-dropdown-content .CoveoFacetRange .coveo-facet-header, 
+.CoveoSearchInterface.coveo-small-facets .coveo-facet-column.coveo-facet-dropdown-content .CoveoFacetSlider .coveo-facet-header, 
+.CoveoSearchInterface.coveo-small-facets .coveo-facet-column.coveo-facet-dropdown-content .CoveoHierarchicalFacet .coveo-facet-header, 
+.CoveoSearchInterface.coveo-small-facets .coveo-facet-column.coveo-facet-dropdown-content .CoveoCategoryFacet .coveo-facet-header, 
+.CoveoSearchInterface.coveo-small-facets .coveo-facet-column.coveo-facet-dropdown-content .CoveoTimespanFacet .coveo-facet-header {
+    background: $facet-header-background-color;
+    border-left: 5px solid $facet-checkbox-color;
+}
+
+.coveo-facet-values {
+  background: $facet-body-background-color;
+}
+
+.CoveoText.coveo-facet-column-title {
+  padding: 10px 0px;
+  line-height: 27px;
+  font-size: ($base-font-size + 2) * 1px;
+  color: #46545E;
+  font-weight: 600;
+}
+
+.coveo-facet-header-title,
+.coveo-category-facet-title {
+  line-height: normal;
+  font-size: $facet-font-size;
+  color: $facet-color;
+  font-size: 1.2em;
+  font-family: "BentonSans-Bold";
+  font-weight: normal;
+}
+
+.coveo-facet-value,
+.coveo-category-facet-value {
+  padding: 4px 18px;
+  color:$base-color;
+  line-height: 22px;
+}
+
+// .coveo-category-facet-value-label.coveo-selectable {
+//     line-height: 30px;
+// }
+
+.coveo-facet-value.coveo-selected .coveo-facet-value-checkbox svg .coveo-hook-svg {
+  fill: $facet-checkbox-color;
+}
+
+.coveo-facet-value-count,
+.coveo-category-facet-value-count {
+  display: none;
+}
+
+.coveo-facet-more, .coveo-facet-less {
+  background:$facet-body-background-color;
+}
+.coveo-facet-value.coveo-selected {
+  font-weight: bold;
+}
+
+// .coveo-facet-header-eraser,
+// .coveo-breadcrumb-clear-all,
+// .coveo-facet-column.coveo-facet-dropdown-content.coveo-dropdown-content .coveo-facet-column-title {
+//   display: none;
+// }
+
+.CoveoSearchInterface.coveo-small-tabs .coveo-dropdown-header-wrapper, 
+.CoveoSearchInterface.coveo-small-facets .coveo-dropdown-header-wrapper, 
+.CoveoSearchInterface.coveo-small-recommendation .coveo-dropdown-header-wrapper {
+  justify-content: flex-start;
+}
+
+.CoveoSearchInterface.coveo-small-tabs .coveo-dropdown-header, 
+.CoveoSearchInterface.coveo-small-facets .coveo-dropdown-header, 
+.CoveoSearchInterface.coveo-small-recommendation .coveo-dropdown-header {
+  height: 24px;
+  line-height: 22px;
+  border-radius: 3px;
+  color: $facet-checkbox-color;
+  border: 1px solid $facet-checkbox-color;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: inherit;
+}
+
+.CoveoSearchInterface.coveo-small-tabs .coveo-dropdown-header-wrapper a, 
+.CoveoSearchInterface.coveo-small-facets .coveo-dropdown-header-wrapper a, 
+.CoveoSearchInterface.coveo-small-recommendation .coveo-dropdown-header-wrapper a {
+  margin-left: 10px;
+  margin-right: 0;
+}

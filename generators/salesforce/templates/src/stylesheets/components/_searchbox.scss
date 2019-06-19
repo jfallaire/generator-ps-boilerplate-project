@@ -1,0 +1,119 @@
+
+@include placeholder(#A0A7AC, $searchbox-font-size, $searchbox-font);
+
+
+.CoveoSearchbox {
+  min-width: 628px;
+  max-width: 1065px;
+  padding: 0 10px;
+  margin: 20px auto 40px auto;
+
+  .magic-box.magic-box-hasFocus {
+    border: thin solid $searchbox-btn-color-hasFocus;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px #a1a7af;
+
+    &.magic-box-notEmpty ~ .CoveoSearchButton,
+    &.magic-box-notEmpty > .CoveoSearchButton {
+      cursor: pointer;
+      background: $searchbox-btn-color-hasFocus;
+      border: thin solid $searchbox-btn-color-hasFocus;
+      box-sizing: border-box;
+      box-shadow: 0 1px 3px #a1a7af;
+    }
+  }
+
+  .magic-box .magic-box-input .magic-box-underlay,
+  .magic-box .magic-box-input>input {
+    color: #46545E;
+    background: #FFFFFF;
+    border-radius: 0;
+    line-height: normal;
+    height: $searchbox-height;
+    font-family: $searchbox-font;
+    font-size: $searchbox-font-size;
+  }
+
+  .magic-box .magic-box-input {
+    border-radius: 0;
+    height: 100%;
+  }
+  .magic-box {
+    border-radius: 0;
+    height: $searchbox-height;
+  }
+
+  .magic-box.magic-box-notEmpty .magic-box-clear {
+    width: $searchbox-height;
+  }
+
+  .magic-box .magic-box-clear {
+    height: $searchbox-height;
+    line-height: $searchbox-height;
+  }
+  .magic-box .magic-box-clear-svg {
+    color:$clear-btn-color;
+  }
+
+  .magic-box .magic-box-suggestions {
+    top: ($base-searchbox-height - 1) * 1px;
+    border: thin solid #9e9e9e;
+    border-top-color: transparent;
+  }
+
+  .CoveoSearchButton {
+    z-index: 0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background: $searchbox-btn-color;
+    border: thin solid $searchbox-btn-color;
+    height: $searchbox-btn-height;
+    width: $searchbox-btn-width;
+  }
+
+  .CoveoSearchButton:before {
+      content: "Search";
+      line-height: 60px;
+      color: #FAFAFA;
+      font-size: 1.125em;
+  }
+
+  .CoveoSearchButton .coveo-search-button, .CoveoSearchButton .coveo-search-button-loading {
+      display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .CoveoSearchbox {
+      min-width: 628 * 2/3 * 1px;
+      .CoveoSearchButton {
+          width:82px;
+      }
+  }
+}
+
+@media only screen and (max-width: 540px) {
+
+  .CoveoSearchbox {
+      min-width: 628 * 2/3 * 3/4 * 1px;
+      .CoveoSearchButton {
+          width:82px;
+      }
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  
+  .CoveoSearchbox {
+      min-width: 300px;
+      .CoveoSearchButton {
+          width:62px;
+      }
+  }
+}
+
+@media (max-width: 480px) {
+  .CoveoSearchInterface .CoveoSearchbox {
+      margin-right: 0px;
+  }
+}

@@ -1,0 +1,49 @@
+@mixin placeholder($color, $font-size, $font-family) {
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: $font-size;
+    font-family: $font-family;
+    color:$color;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    font-size: $font-size;
+    font-family: $font-family;
+    color: $color;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    font-size: $font-size;
+    font-family: $font-family;
+    color: $color;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    font-size: $font-size;
+    font-family: $font-family;
+    color: $color;
+  }
+
+  [placeholder]{
+    text-overflow:ellipsis;
+  }
+}
+
+@mixin transition($transition-value...) {
+  -moz-transition: $transition-value;
+  -o-transition: $transition-value;
+  -webkit-transition: $transition-value;
+  transition: $transition-value;
+}
+
+@mixin localization() {
+  
+  :lang(en) {
+    .CoveoSearchButton:before { content: "Search"; }
+  }
+
+  :lang(fr) {
+    .CoveoSearchButton:before { content: "Rechercher"; }
+  }
+
+  :lang(es) {
+    .CoveoSearchButton:before { content: "Buscar"; }
+  }
+}
+  

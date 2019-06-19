@@ -1,0 +1,112 @@
+<style>
+    .logo-title {
+        margin-left: 50px;
+        line-height: 40px;
+        font-weight: bold;
+    }
+    .slds-global-header__logo {
+        width:30rem;
+        background-image: url('https://cdn.frontify.com/api/screen/thumbnail/2G3mSyhrayALW-DBMOK2IhbZZaadubAiV-Pkk_-Uihu8bOFlWhalC4WJ9Rox6fbeQr980Ekc4nnBcL_viAtuDw/83');
+    }
+</style>
+<script>
+  
+  function insertParam(key, value) {
+      key = encodeURI(key); value = encodeURI(value);
+      var kvp = document.location.search.substr(1).split('&');
+      var i=kvp.length; var x; while(i--) {
+          x = kvp[i].split('=');
+          if (x[0]==key) {
+              x[1] = value;
+              kvp[i] = x.join('=');
+              break;
+          }
+      }
+
+      if(i<0) {kvp[kvp.length] = [key,value].join('=');}
+      //this will reload the page, it's likely better to store this until finished
+      document.location.search = kvp.join('&').replace(/^&/, ''); 
+  }
+</script>
+<header class="slds-global-header_container">
+  <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Navigation</a>
+  <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Main Content</a>
+  <div class="slds-global-header slds-grid slds-grid_align-spread">
+    <div class="slds-global-header__item">
+      <div class="slds-global-header__logo logo-item"><div class="logo-title"><%%=title%></div></div>
+    </div>
+    <div class="slds-global-header__item action-item <%%- enableActionItems || 'slds-hide' %>">
+        <ul class="slds-global-actions">
+            <li class="slds-global-actions__item">
+              <a class="slds-button slds-button_icon slds-button_icon-container slds-button_icon-small" href="/" title="Home" >
+                <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#home"></use>
+                </svg>
+                <span class="slds-assistive-text">Home</span>
+              </a>
+            </li>
+            <li class="slds-global-actions__item <%%- enableDeflectionActionItem || 'slds-hide' %>">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click" onclick="document.getElementById('popover_deflection').classList.toggle('slds-popover_hide');">
+                <button class="slds-button slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__deflection slds-global-actions__item-action" title="Deflection" aria-haspopup="true" aria-live="assertive" aria-atomic="true">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#color_swatch"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Deflection use cases</span>
+                </button>
+
+                <%%- include('./popover', {
+                    options: {},
+                    id: 'popover_deflection',
+                    title: 'Deflection use case samples',
+                    items: [
+                      {title:'[Subject] setup sound bar', description:'', href: "javascript:insertParam('subject', 'setup sound bar')"},
+                      {title:'[Subject] TV won\'t power on', description:'', href: "javascript:insertParam('subject', 'TV will not power on')"},
+                      {title:'[Subject] Remote control is broken', description:'', href: "javascript:insertParam('subject', 'Remote control is broken')"},
+                    ]
+                }); %>
+
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click" onclick="this.classList.toggle('slds-is-open');">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__languages slds-global-actions__item-action" title="Languages" aria-haspopup="true" aria-live="assertive" aria-atomic="true">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#world"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Languages</span>
+                </button>
+
+                <%%- include('./dropdown', {
+                    options: {},
+                    title: 'Languages',
+                    items: [
+                      {title:'English (en)', description:'English language', href: "javascript:insertParam('language', 'en')" },
+                      {title:'French (fr)', description:'French language', href: "javascript:insertParam('language','fr')"},
+                      {title:'Spanish (es-es)', description:'Spanish language', href: "javascript:insertParam('language', 'es-es')"}
+                    ]
+                }); %>
+                
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+                <div class="slds-dropdown-trigger slds-dropdown-trigger_click" onclick="this.classList.toggle('slds-is-open');">
+                  <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action" title="person name" aria-haspopup="true">
+                      <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                      <img alt="Person name" src="/assets/images/avatar2.jpg" title="User avatar" />
+                      </span>
+                  </button>
+
+                  <%%- include('./dropdown', {
+                      options: {},
+                      title: 'Preview As',
+                      items: [
+                        {title:'Authenticated User (Employee)', description:'Employee', href: "javascript:insertParam('userType', 'Employee')"},
+                        {title:'Guest', description:'Guest', href: "javascript:insertParam('userType', 'Guest')"}
+                      ]
+                  }); %>
+                </div>
+            </li>
+        </ul>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,44 @@
+
+// .coveo-placeholder-result:nth-last-child(-n+7) {
+//     display: none;
+// }
+
+
+.coveo-placeholder-result > .coveo-result-row > .coveo-result-cell:nth-child(2) {
+    padding-left:0px;
+}
+.coveo-placeholder-result > .coveo-result-row > .coveo-result-cell:first-child {
+    display: none;
+}
+.coveo-placeholder-text, .coveo-placeholder-title {
+    border-radius: 15rem;
+    height: .75rem;
+}
+
+.coveo-placeholder-result, 
+.coveo-result-frame.coveo-placeholder-result {
+    margin: 25px 0;
+}
+
+
+
+.CoveoFacet.coveo-during-initialization .coveo-facet-placeholder .coveo-placeholder-title, 
+.CoveoFacetRange.coveo-during-initialization .coveo-facet-placeholder .coveo-placeholder-title, 
+.CoveoFacetSlider.coveo-during-initialization .coveo-facet-placeholder .coveo-placeholder-title, 
+.CoveoHierarchicalFacet.coveo-during-initialization .coveo-facet-placeholder .coveo-placeholder-title, 
+.CoveoCategoryFacet.coveo-during-initialization .coveo-facet-placeholder .coveo-placeholder-title, 
+.CoveoTimespanFacet.coveo-during-initialization .coveo-facet-placeholder .coveo-placeholder-title {
+    height: 40px;
+    border-radius: 0px;
+}
+
+.CoveoFacet.coveo-during-initialization.coveo-with-placeholder, 
+.CoveoFacetRange.coveo-during-initialization.coveo-with-placeholder, 
+.CoveoFacetSlider.coveo-during-initialization.coveo-with-placeholder, 
+.CoveoHierarchicalFacet.coveo-during-initialization.coveo-with-placeholder, 
+.CoveoCategoryFacet.coveo-during-initialization.coveo-with-placeholder, 
+.CoveoTimespanFacet.coveo-during-initialization.coveo-with-placeholder {
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 50px;
+}

@@ -1,0 +1,20 @@
+.coveo-pager-list-item {
+    padding: 9px 13px 8px 14px;
+    border: none;
+    color: $custom-black;
+    font-size: $base-font-size * 1px;
+}
+
+.coveo-pager-list-item.coveo-active, .coveo-pager-list-item:hover {
+    color: $custom-red;
+    background: #E4E5E7;
+    border-radius: 3px;
+}
+
+.coveo-pager-next-icon-svg, .coveo-pager-previous-icon-svg {
+    color: $custom-black;
+}
+
+.coveo-pager-list-item.coveo-active a, .coveo-pager-list-item:hover a {
+    color: $custom-red
+}

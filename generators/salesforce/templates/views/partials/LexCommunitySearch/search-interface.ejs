@@ -1,0 +1,47 @@
+<div id="LexCommunitySearch" class='CoveoSearchInterface' data-enable-history="true" data-design="new">
+  <div class="Coveo<%= capitalizeCustomerSafeName %>Custo"></div>
+  <div class="CoveoFoldingForThread"></div>
+  <div class="CoveoAnalytics"></div>
+  <div class="CoveoCommunityStateManager"></div>
+  <div class='coveo-search-section'>
+    <div class="CoveoSearchbox" data-enable-omnibox="true"></div>
+  </div>
+  <div class="coveo-main-section">
+    <div class="coveo-results-column">
+      <div class="CoveoShareQuery"></div>
+      <div class="CoveoExportToExcel"></div>
+      <div class="CoveoPreferencesPanel">
+        <div class="CoveoResultsPreferences"></div>
+        <div class="CoveoResultsFiltersPreferences"></div>
+      </div>
+      <div class="CoveoSearchAlerts"></div>
+      <div class="CoveoBreadcrumb"></div>
+      <div class="coveo-results-header">
+        <div class="coveo-summary-section">
+          <span class="CoveoQuerySummary"></span>
+          <span class="CoveoQueryDuration"></span>
+        </div>
+        <div class="coveo-result-layout-section">
+          <span class="CoveoResultLayout" data-mobile-layouts="card" data-tablet-layouts="list" data-desktop-layouts="list"></span>
+        </div>
+        <div class="coveo-sort-section">
+          <%%- include('./sorts'); %>
+        </div>
+      </div>
+      <div class="CoveoHiddenQuery"></div>
+      <div class="CoveoDidYouMean"></div>
+      <div class="CoveoErrorReport"></div>
+      <div class="CoveoResultList" data-layout="list" data-wait-animation="fade" data-auto-select-fields-to-include="true">
+        <%%- include('../../templates/community/results-list-template.ejs'); %>
+      </div>
+      <div class="CoveoResultList" data-layout="card" data-wait-animation="fade" data-auto-select-fields-to-include="true">
+        <%%- include('../../templates/community/results-card-template.ejs'); %>
+      </div>
+      <div class="CoveoPager"></div>
+      <div class="CoveoLogo"></div>
+    </div>
+    <div class="coveo-facet-column">
+      <%%- include('./facets'); %>
+    </div>
+  </div>
+</div>
