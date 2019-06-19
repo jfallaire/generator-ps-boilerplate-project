@@ -1,0 +1,87 @@
+.CoveoQuerySummary {
+    color: $base-color;
+}
+
+.CoveoResultLink,
+a.CoveoResultLink,
+.CoveoResult a.CoveoResultLink {
+  color: $base-color;
+  line-height: normal;
+  font-size: 1.2rem;
+  font-family: "BentonSans-Bold";
+}
+
+.CoveoExcerpt {
+  color: $base-color;
+  line-height: 1.5rem;
+  font-size: .875rem;
+  font-family: $base-font-family;
+}
+
+.CoveoPrintableUri>.CoveoResultLink,
+.CoveoPrintableUri>a.CoveoResultLink,
+.CoveoPrintableUri>.CoveoResult a.CoveoResultLink,
+.CoveoResultLink.custom-printable-uri,
+a.CoveoResultLink.custom-printable-uri,
+.CoveoResult a.CoveoResultLink.custom-printable-uri {
+  line-height: normal;
+  font-size: .8rem;
+  color: #899298;
+  font-family: $base-font-family;
+}
+
+.CoveoFieldValue {
+  &.coveo-with-label span:last-child {
+    font-size: 0.875rem;
+    color: $custom-black;
+  }
+  .coveo-field-caption {
+    margin-right: 2px;
+  }
+}
+
+.CoveoFieldValue .coveo-field-caption,
+.custom-printable-field {
+  color: #899298;
+  font-size: .8rem;
+}
+
+.dotSymbol:after {
+    content: "\000B7";
+    margin: 0 .25rem 0 .25rem;
+    font-size: .8rem;
+    color: #899298;
+    vertical-align: middle;
+}
+
+.custom-printable-views:after {
+    content:"";
+    display: table;
+    clear: both;
+}
+
+.custom-printable-views > span.coveo-field-caption {
+    float: right;
+    margin-left: 3px;
+    margin-right: 0px;
+}
+
+.CoveoQuickview > div {
+    display: inline-block;
+}
+
+.coveo-icon-for-quickview-svg {
+    margin-top: 0px;
+    margin-left: 2px;
+    color: $custom-black;
+}
+.CoveoQuickview .coveo-caption-for-icon[x-placement^='bottom'] > div {
+    border-color: $custom-black transparent;
+}
+.CoveoQuickview .coveo-caption-for-icon {
+    background: $custom-black;
+}
+
+.CoveoSearchInterface.coveo-case-deflection .coveo-list-layout.CoveoResult {
+  padding: 15px 5px;
+}

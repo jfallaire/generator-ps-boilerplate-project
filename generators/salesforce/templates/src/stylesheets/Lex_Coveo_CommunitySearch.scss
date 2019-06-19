@@ -1,0 +1,17 @@
+.THIS {
+    @import './partials/base';
+    @import './partials/mixins';
+    @import './partials/layout';
+
+    @import './components/placeholder';
+    @import './components/searchbox';
+    @import './components/facets';
+    @import './components/results';
+    @import './components/pager';
+
+    @include localization();
+    
+    header.slds-card__header {
+      display: none;
+    }
+}

@@ -1,0 +1,159 @@
+
+@include placeholder(#A0A7AC, $searchbox-font-size, $searchbox-font);
+
+#standaloneSearchbox {
+    min-width: 628px;
+    max-width: 1065px;
+    padding: 0 10px;
+    margin: 20px auto 40px auto;
+
+    & .CoveoSearchInterface {
+        &:not(.coveo-after-initialization) > * {
+            // Prevent flickering Search box
+            display: inherit;
+            visibility: inherit;
+        }
+    }
+    .magic-box.magic-box-hasFocus {
+
+        .magic-box-input {
+            border: thin solid $searchbox-btn-color-hasFocus;
+            box-sizing: border-box;
+            box-shadow: 0 1px 3px #a1a7af;
+        }
+
+        &.magic-box-notEmpty ~ .CoveoSearchButton,
+        &.magic-box-notEmpty > .CoveoSearchButton {
+            cursor: pointer;
+            background: $searchbox-btn-color-hasFocus;
+            border: thin solid $searchbox-btn-color-hasFocus;
+            box-sizing: border-box;
+            box-shadow: 0 1px 3px #a1a7af;
+        }
+    }
+    .magic-box {
+        // border: thin solid #B7BCC0;
+        // @include transition(border 0.5s ease-out);
+    }
+
+    .magic-box .magic-box-input {
+        height: $searchbox-btn-height;
+        border: thin solid #B7BCC0;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+        @include transition(border 0.5s ease-out);
+    }
+
+    .magic-box .magic-box-clear-svg {
+        color: $clear-btn-color;
+        margin: 25px 15px;
+        vertical-align: inherit;
+    }
+
+    .CoveoSearchButton {
+        z-index: 2;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        background: $searchbox-btn-color;
+        border: thin solid $searchbox-btn-color;
+        height: $searchbox-btn-height;
+        width: $searchbox-btn-width;
+    }
+}
+
+.magic-box .magic-box-input .magic-box-underlay,
+.magic-box .magic-box-input>input {
+    color: #46545E;
+    background: #FFFFFF;
+    border-radius: 0;
+    line-height: normal;
+    height: $searchbox-btn-height;
+    font-family: $searchbox-font;
+    font-size: $searchbox-font-size;
+}
+
+.CoveoSearchbox .magic-box .magic-box-clear .magic-box-icon:before {
+    content: none;
+}
+
+.CoveoSearchbox .magic-box,
+.CoveoSearchbox .magic-box .magic-box-input {
+    border-radius:0;
+}
+
+/* hack to byPass magic-box-inline that is enforced in lightning searchbox component.*/
+.CoveoStandaloneSearchbox.magic-box.magic-box-inline {
+    border: none;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    overflow: visible;
+    .magic-box-suggestions.magic-box-hasSuggestion {
+        position:absolute;
+        top: 100%;
+        border: thin solid #B7BCC0;
+        right: 0;
+        left: 0;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+}
+
+.magic-box.magic-box-notEmpty .magic-box-clear {
+    width: 45px;
+}
+
+.magic-box .magic-box-clear {
+    height: $searchbox-height;
+    line-height: $searchbox-height;
+}
+
+.CoveoSearchButton:before {
+    content: "Search";
+    line-height: 60px;
+    color: #FAFAFA;
+    font-size: 1.125em;
+}
+
+.CoveoSearchButton .coveo-search-button, .CoveoSearchButton .coveo-search-button-loading {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    #standaloneSearchbox {
+        min-width: 628 * 2/3 * 1px;
+        .CoveoSearchButton {
+            width:82px;
+        }
+    }
+}
+
+@media only screen and (max-width: 540px) {
+
+    #standaloneSearchbox {
+        min-width: 628 * 2/3 * 3/4 * 1px;
+        .CoveoSearchButton {
+            width:82px;
+        }
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    
+    #standaloneSearchbox {
+        min-width: 300px;
+        .CoveoSearchButton {
+            width:62px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .CoveoSearchInterface .CoveoSearchbox {
+        margin-right: 0px;
+    }
+}
+  
+    
+  
+  
+  

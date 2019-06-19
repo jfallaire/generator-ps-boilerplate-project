@@ -1,0 +1,288 @@
+.CoveoResult .CoveoChatterThumbnail .coveo-chatter-thumbnail-img {
+  border-radius: 50%; }
+
+.CoveoResult .CoveoChatterThumbnail .coveo-chatter-thumbnail-placeholder {
+  text-align: center;
+  border-radius: 2px;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px; }
+
+.CoveoResult .coveo-salesforce-thumbnail-container.coveo-salesforce-thumbnail-placeholder {
+  text-align: center; }
+
+.CoveoResult .coveo-salesforce-thumbnail-container.coveo-salesforce-thumbnail-placeholder > img.coveo-salesforce-thumbnail-img {
+  display: none; }
+
+.CoveoSearchInterface.coveo-chat-ended .CoveoResultActionsSendLiveAgent {
+  display: none; }
+
+.CoveoResultActionsMenu {
+  display: none;
+  position: relative;
+  right: 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: -24px;
+  background: white; }
+  .CoveoResultActionsMenu .coveo-hidden {
+    display: none; }
+  .CoveoResultActionsMenu.coveo-menu-opened {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    float: right; }
+  .CoveoResultActionsMenu .coveo-result-actions-menu-menu-item {
+    height: initial;
+    padding: 0 8px;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    border-left: 1px solid #ccc;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    line-height: 1.5em; }
+    .CoveoResultActionsMenu .coveo-result-actions-menu-menu-item.coveo-hidden {
+      display: none; }
+    .CoveoResultActionsMenu .coveo-result-actions-menu-menu-item:first-child {
+      border: transparent;
+      border-top-left-radius: inherit;
+      border-bottom-left-radius: inherit; }
+    .CoveoResultActionsMenu .coveo-result-actions-menu-menu-item.CoveoAttachToCase span {
+      visibility: visible; }
+    .CoveoResultActionsMenu .coveo-result-actions-menu-menu-item .coveo-icon-for-quickview-svg {
+      margin: 0; }
+    .CoveoResultActionsMenu .coveo-result-actions-menu-menu-item:hover {
+      background-color: #f3f2f2; }
+    .CoveoResultActionsMenu .coveo-result-actions-menu-menu-item svg {
+      height: 16px;
+      width: 16px;
+      fill: #1d4f76;
+      vertical-align: middle; }
+    .CoveoResultActionsMenu .coveo-result-actions-menu-menu-item.CoveoQuickview:hover .coveo-caption-for-icon {
+      top: initial; }
+    .CoveoResultActionsMenu .coveo-result-actions-menu-menu-item:hover .coveo-caption-for-icon {
+      display: inline;
+      bottom: 26px;
+      transform: translateX(-50%);
+      left: 50%; }
+    .CoveoResultActionsMenu .coveo-result-actions-menu-menu-item .coveo-caption-for-icon {
+      font-size: 12px;
+      display: none;
+      background: #263e55;
+      color: white;
+      border-radius: 2px;
+      padding: 6px 16px;
+      position: absolute;
+      white-space: nowrap;
+      z-index: 99; }
+      .CoveoResultActionsMenu .coveo-result-actions-menu-menu-item .coveo-caption-for-icon:before {
+        border: solid;
+        border-color: #263e55 transparent;
+        border-width: 7px 6px 0;
+        content: '';
+        position: absolute;
+        z-index: 99;
+        bottom: -6px;
+        top: initial;
+        left: calc(50% - 6px); }
+
+.CoveoResultActionsPostToFeed,
+.CoveoResultActionsSendEmail,
+.CoveoResultActionsSendLiveAgent {
+  cursor: pointer;
+  position: relative;
+  margin: 0 0 0 .5em;
+  line-height: 1.5em;
+  text-align: center; }
+  .CoveoResultActionsPostToFeed svg,
+  .CoveoResultActionsSendEmail svg,
+  .CoveoResultActionsSendLiveAgent svg {
+    height: 16px;
+    width: 16px;
+    fill: #1d4f76;
+    vertical-align: middle; }
+  .CoveoResultActionsPostToFeed.coveo-hidden,
+  .CoveoResultActionsSendEmail.coveo-hidden,
+  .CoveoResultActionsSendLiveAgent.coveo-hidden {
+    display: none; }
+  .CoveoResultActionsPostToFeed > span,
+  .CoveoResultActionsSendEmail > span,
+  .CoveoResultActionsSendLiveAgent > span {
+    display: inline-block; }
+  .CoveoResultActionsPostToFeed:hover .coveo-caption-for-icon,
+  .CoveoResultActionsSendEmail:hover .coveo-caption-for-icon,
+  .CoveoResultActionsSendLiveAgent:hover .coveo-caption-for-icon {
+    display: inline;
+    bottom: 26px;
+    transform: translateX(-50%);
+    left: 50%; }
+  .CoveoResultActionsPostToFeed .coveo-caption-for-icon,
+  .CoveoResultActionsSendEmail .coveo-caption-for-icon,
+  .CoveoResultActionsSendLiveAgent .coveo-caption-for-icon {
+    font-size: 12px;
+    display: none;
+    background: #263e55;
+    color: white;
+    border-radius: 2px;
+    padding: 6px 16px;
+    position: absolute;
+    white-space: nowrap;
+    z-index: 99; }
+    .CoveoResultActionsPostToFeed .coveo-caption-for-icon:before,
+    .CoveoResultActionsSendEmail .coveo-caption-for-icon:before,
+    .CoveoResultActionsSendLiveAgent .coveo-caption-for-icon:before {
+      border: solid;
+      border-color: #263e55 transparent;
+      border-width: 7px 6px 0;
+      content: '';
+      position: absolute;
+      z-index: 99;
+      bottom: -6px;
+      top: initial;
+      left: calc(50% - 6px); }
+
+/*
+* @param direction vertical or horizontal
+* @param position type of positioning to apply (relative/absolute)
+*/
+/*
+* @param $selector css selector on which to apply the icon. Can be '&' if the icon should be applied on the current element;
+* @param $size size of the icon to use
+*/
+@-webkit-keyframes coveo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-moz-keyframes coveo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-o-keyframes coveo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes coveo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-webkit-keyframes smooth-spin {
+  from {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); } }
+
+@-moz-keyframes smooth-spin {
+  from {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); } }
+
+@-o-keyframes smooth-spin {
+  from {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes smooth-spin {
+  from {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); } }
+
+/* hide after a query is made. */
+.coveo-after-initialization .coveo-hide-after-query {
+  display: none;
+  visibility: hidden; }
+
+/* show before a query is made. */
+.coveo-during-initialization .coveo-hide-after-query {
+  display: inherit;
+  visibility: inherit; }
+
+.CoveoResultsPreferences {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif, sans-serif;
+  font-size: 15px;
+  color: #373737; }
+
+.CoveoResultsFiltersPreferences {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif, sans-serif;
+  font-size: 15px;
+  color: #373737; }
+
+.coveo-modal-container.salesforce-quickview-modal-container .coveo-modal-body {
+  padding: 0; }
+  .coveo-modal-container.salesforce-quickview-modal-container .coveo-modal-body iframe {
+    border: transparent; }

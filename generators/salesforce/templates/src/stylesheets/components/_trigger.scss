@@ -1,0 +1,27 @@
+.CoveoTriggers.coveo-visible {
+  text-align: center;
+  margin: 15% 100px;
+  opacity: 1;
+  visibility: visible;
+}
+.CoveoTriggers {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+
+}
+
+.CoveoTriggers.coveo-visible ~ .coveo-main-section,
+.CoveoTriggers.coveo-visible ~ .coveo-tab-section, 
+.CoveoTriggers.coveo-visible ~ .CoveoPager {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.coveo-main-section,
+.coveo-tab-section, 
+.CoveoPager {
+  visibility: visible;
+  opacity:1;
+  transition: visibility 0s, opacity 0.5s linear;
+}
