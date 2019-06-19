@@ -8,7 +8,6 @@ const mkdirp = require('mkdirp');
 const chalk = require('chalk');
 const yosay = require('yosay');
 
-
 module.exports = class extends Generator {
 
   constructor(args, options) {
@@ -42,6 +41,7 @@ module.exports = class extends Generator {
   }
 
   initializing() {
+
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the fabulous ' + chalk.red('ps-boilerplate-project') + ' generator!'
