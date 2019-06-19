@@ -1,0 +1,108 @@
+.wy-side-nav-search { 
+    background-color: #193045;
+}
+
+
+.wy-nav-side {
+    background: #193045;
+}
+
+/* override table no-wrap */
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: normal;
+}
+
+/*.wy-menu-vertical a.reference.internal {
+    color: #F7F8F9;
+}*/
+
+.wy-menu-vertical p.caption {
+    color: #67768B;
+}
+
+.rst-versions {
+    background: #193045;
+    border-top: solid 5px #F58020;
+}
+
+.wy-menu-vertical a:hover {
+    background-color: #F58020;
+    color: #193045;
+}
+
+.rst-versions .rst-current-version {
+    background-color: #193045;
+}
+
+.wy-side-nav-search img {
+    /* height: 45px; */
+    width: inherit;
+    background-color: transparent;
+    padding: 5px;
+    height: 57px;
+    max-width: 145px;
+    border-radius: 0;
+}
+
+nav.wy-nav-top {
+    background: #193045;
+}
+
+img {
+    border: solid 1px #193045;
+    border-radius: 4px;
+}
+
+h2 {
+    color: #F58020;
+}
+
+h1 {
+    color: #193045;
+}
+
+.codehilite {
+    padding: 12px;
+    overflow-x: auto;
+    font-size: 14px;
+}
+.coveo-cloud-badge {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 2em;
+    padding: 0 1em;
+    margin-right: 4px;
+    color: #fff;
+    font-size: .8em;
+    line-height: 2em;
+    background-color: #f58020;
+}
+
+.bg-azure {
+    background-color: #0d80ef;
+}
+
+.bg-coveo-blue {
+    background-color: #004990;
+}
+
+.bg-darker-blue {
+    background-color: #193045;
+}
+
+
+.rst-content .align-center.okta-logo {
+    margin: 50px auto;
+}
+.okta-logo {
+    width: 50%;
+    padding: 40px;
+}
+
+
+@media screen and (min-width: 1400px) {
+    .wy-nav-content {
+        max-width:1200px;
+    }
+}
+    
