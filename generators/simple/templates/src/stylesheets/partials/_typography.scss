@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i');
+@font-face{
+    font-family:"BentonSans";
+    src:url("#{$font-path}/Benton-Sans-Regular/0e593e94-86a4-42b1-b2ae-7f0520e24ba8-2.eot");
+    src:url("#{$font-path}/Benton-Sans-Regular/0e593e94-86a4-42b1-b2ae-7f0520e24ba8-2.eot?") format("embedded-opentype");
+    src:url("#{$font-path}/Benton-Sans-Regular/0e593e94-86a4-42b1-b2ae-7f0520e24ba8-3.woff") format("woff");
+    src:url("#{$font-path}/Benton-Sans-Regular/0e593e94-86a4-42b1-b2ae-7f0520e24ba8-1.ttf") format("truetype");
+    font-style:normal;
+    font-weight:normal;
+}
+@font-face{
+    font-family:"BentonSans-Light";
+    src:url("#{$font-path}/Benton-Sans-Light/78997db8-793e-4b84-82f7-6275e943749a-2.eot");
+    src:url("#{$font-path}/Benton-Sans-Light/78997db8-793e-4b84-82f7-6275e943749a-2.eot?") format("embedded-opentype");
+    src:url("#{$font-path}/Benton-Sans-Light/78997db8-793e-4b84-82f7-6275e943749a-3.woff") format("woff");
+    src:url("#{$font-path}/Benton-Sans-Light/78997db8-793e-4b84-82f7-6275e943749a-1.ttf") format("truetype");
+    font-style:normal;
+    font-weight:normal;
+}
+@font-face{
+    font-family:"BentonSans-Bold";
+    src:url("#{$font-path}/Benton-Sans-Bold/7b535b20-97c3-42ce-b292-dcb4f919a6c3-2.eot");
+    src:url("#{$font-path}/Benton-Sans-Bold/7b535b20-97c3-42ce-b292-dcb4f919a6c3-2.eot?") format("embedded-opentype");
+    src:url("#{$font-path}/Benton-Sans-Bold/7b535b20-97c3-42ce-b292-dcb4f919a6c3-3.woff") format("woff");
+    src:url("#{$font-path}/Benton-Sans-Bold/7b535b20-97c3-42ce-b292-dcb4f919a6c3-1.ttf") format("truetype");
+    font-style:normal;
+    font-weight:bold;
+}
+@font-face{
+    font-family:"BentonSans-Italic";
+    src:url("#{$font-path}/Benton-Sans-Regular-Italic/0671a6f0-7aee-4600-8342-f3605f40cb0b-2.eot");
+    src:url("#{$font-path}/Benton-Sans-Regular-Italic/0671a6f0-7aee-4600-8342-f3605f40cb0b-2.eot?") format("embedded-opentype");
+    src:url("#{$font-path}/Benton-Sans-Regular-Italic/0671a6f0-7aee-4600-8342-f3605f40cb0b-3.woff") format("woff");
+    src:url("#{$font-path}/Benton-Sans-Regular-Italic/0671a6f0-7aee-4600-8342-f3605f40cb0b-1.ttf") format("truetype");
+    font-style:italic;
+    font-weight:normal;
+}

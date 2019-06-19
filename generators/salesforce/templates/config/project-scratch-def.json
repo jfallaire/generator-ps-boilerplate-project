@@ -1,0 +1,19 @@
+{
+  "orgName": "<%= capitalizeCustomerSafeName %>Scratch",
+  "edition": "Developer",
+  "features": ["Communities", "Sites", "SiteDotCom", "Knowledge"],
+  "hasSampleData": "true",
+  "settings": {
+      "orgPreferenceSettings": {
+          "s1DesktopEnabled": true,
+          "selfSetPasswordInApi": true,
+          "s1EncryptedStoragePref2": false,
+          "networksEnabled": true,
+          "chatterEnabled": true                       
+      },
+      "knowledgeSettings":{
+          "enableKnowledge": true,
+          "enableLightningKnowledge" : true
+      }
+  }
+}

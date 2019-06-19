@@ -1,0 +1,8 @@
+.THIS {
+    @import './partials/base';
+    @import './partials/mixins';
+
+    @import './components/_StandaloneSearchbox';
+
+    @include localization();
+}

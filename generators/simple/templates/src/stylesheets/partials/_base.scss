@@ -1,0 +1,35 @@
+$font-path: '../fonts';
+
+$custom-black: #000000;
+$custom-red: #ce3521;
+
+$base-color: $custom-black;
+$base-font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+$base-font-size: 16;
+$base-searchbox-height: 65;
+
+$resultlink-font-family: "BentonSans-Bold";
+
+$searchbox-font: $base-font-family;
+$searchbox-font-size: 1.125em;
+$searchbox-border-size: 1;
+$searchbox-height: $base-searchbox-height * 1px; 
+$searchbox-btn-height: $base-searchbox-height * 1px;
+$searchbox-btn-width: 102px; 
+$searchbox-btn-color-hasFocus: $custom-red;
+$searchbox-btn-color: $base-color;
+$clear-btn-color: #E4E5E7;
+
+$standalone-searchbox-font: $base-font-family;
+$standalone-searchbox-font-size: $base-font-size * 1px;
+$standalone-searchbox-height: $searchbox-height;
+$standalone-searchbox-btn-height: $searchbox-btn-height; 
+$standalone-searchbox-btn-width: 102px; 
+$standalone-searchbox-btn-color-hasFocus: $searchbox-btn-color-hasFocus;
+$standalone-searchbox-btn-color: $searchbox-btn-color;
+
+$facet-color:$base-color;
+$facet-font-size: $base-font-size * 1px;
+$facet-header-background-color:#f5f7f9;
+$facet-body-background-color:#FEFDFE;
+$facet-checkbox-color: $custom-red;

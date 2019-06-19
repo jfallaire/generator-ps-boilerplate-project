@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%%=title%></title>
+
+    <link rel="stylesheet" href="assets/styles/salesforce-lightning-design-system.css" />
+    <link rel="stylesheet" href="assets/css/local.css" />
+    
+    <script src="assets/js/local.js"></script>   
+    <style>
+        .slds-visual-picker {
+            margin: 5px 0;
+        }
+
+        .slds-card {
+            margin-bottom: 20px;
+        }
+
+        .header-item {
+            width: 60%;
+        }
+        fieldset.slds-form-element {
+            margin: 5rem auto;
+        }
+    </style>
+    <script>
+        const redirectToPage = function (page) {
+            location.href = `${page}`
+        }
+    </script>
+</head>
+
+<body>
+    
+    <%%- include('../utilities/globalHeader', {
+        title: title + ' - Select a page',
+        enableActionItems: false,
+        enableDeflectionActionItem: false
+    }); %>
+
+    <fieldset class="slds-form-element">
+        <%% for (var i = 0; i < pages.length; i++) { %>
+        <%% const page = pages[i].split('.')[0] %>
+        <%% if (['index'].indexOf(page.replace(/-/g,' ')) != -1) {continue} %>
+        <%%- include('../utilities/visualPicker', {
+            page:page,
+            url:'/' + page,
+            title: page.replace(/-/g,' ')
+        }); %>
+
+        <%% } %>
+    </fieldset>
+</body>
+
+</html>
