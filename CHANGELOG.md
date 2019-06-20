@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.0.0...v2.1.0) (2019-06-20)
+
+
+### Features
+
+* add future configurations to integration type prompt ([f08cc78](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/f08cc78))
+
+
+### Reverts
+
+* update semantic release branch back to master ([2bdca58](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/2bdca58))
+
 # [2.0.0](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v1.0.0...v2.0.0) (2019-06-19)
 
 
