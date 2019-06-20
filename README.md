@@ -20,8 +20,6 @@ then run :
 
     npx -p yo -p generator-ps-boilerplate-project@latest -- yo ps-boilerplate-project
 
-![Interactive demo - customerABC](https://coveojfallaire.bitbucket.io/generator-ps-boilerplate-project/boilerplate-project.svg)
-
 
 ### Creating a new project with npm <= 5.2
 
@@ -33,19 +31,146 @@ Now you can run:
 
     yo ps-boilerplate-project
 
+![Interactive demo - customerABC](https://coveojfallaire.bitbucket.io/generator-ps-boilerplate-project/demo-boilerplate-project-Jun-20-2019.gif)
+
 ## What do you get?
 
-Scaffolds out a complete generator directory structure for you:
+Scaffolds out a complete generator directory structure for you.
+
+### Simple configuration
 
 ```
 .
+├── Dockerfile
+├── Makefile
+├── README.md
 ├── commitlint.config.js
-├── customer-abc-iow
-├── customer-abc-search-ui
-└── package.json
+├── docker-compose.builder.yml
+├── docker-compose.yml
+├── iow
+│   ├── CoveoCloudPlatform
+│   ├── Customization
+│   ├── Deployment
+│   ├── Downloads
+│   ├── Makefile
+│   ├── Overview
+│   ├── README.md
+│   ├── _static
+│   ├── _templates
+│   ├── appendixA.rst
+│   ├── conf.py
+│   ├── dev.rst
+│   ├── index.rst
+│   └── requirements.txt
+├── karma.conf.js
+├── package.json
+├── routes
+│   ├── errors.js
+│   └── pages.js
+├── src
+│   ├── fonts
+│   ├── platform
+│   ├── stylesheets
+│   ├── typescripts
+│   └── utilities
+├── test
+│   ├── Fake.ts
+│   ├── MockEnvironment.ts
+│   ├── Simulate.ts
+│   ├── test.ts
+│   └── typescripts
+├── tsconfig.json
+├── utils
+│   ├── cloudplatformAPI.js
+│   ├── metadata.js
+│   ├── middleware.js
+│   └── routesUtils.js
+├── views
+│   ├── pages
+│   ├── partials
+│   ├── templates
+│   └── utilities
+├── webpack.common.config.js
+├── webpack.dev.config.js
+├── webpack.prod.config.js
+└── webpack.test.config.js
 ```
 
-No configuration or complicated folder structures, just the files you need to start off your project. For further details about the folder structures of `<your-customer>-iow` and `<your-customer>-search-ui`, please refer to the following documentation: 
+### Salesforce configuration
 
-* [generator-ps-search-ui-sfdc](https://github.com/jfallaire/generator-ps-search-ui-sfdc#readme)
-* [generator-ps-iow](https://github.com/jfallaire/generator-ps-iow#readme)
+```
+.
+├── Dockerfile
+├── Makefile
+├── README.md
+├── commitlint.config.js
+├── config
+│   └── project-scratch-def.json
+├── docker-compose.builder.yml
+├── docker-compose.yml
+├── docker-entrypoint.sh
+├── force-app
+│   └── main
+├── gulpfile.js
+├── gulptasks
+│   ├── build.tasks.js
+│   ├── clean.tasks.js
+│   ├── compute.tasks.js
+│   ├── dev.tasks.js
+│   ├── env.tasks.js
+│   └── metadata.tasks.js
+├── iow
+│   ├── CoveoCloudPlatform
+│   ├── Customization
+│   ├── Deployment
+│   ├── Downloads
+│   ├── Makefile
+│   ├── Overview
+│   ├── README.md
+│   ├── _static
+│   ├── _templates
+│   ├── appendixA.rst
+│   ├── conf.py
+│   ├── dev.rst
+│   ├── index.rst
+│   └── requirements.txt
+├── karma.conf.js
+├── manifest
+│   └── package.xml.example
+├── package.json
+├── routes
+│   ├── errors.js
+│   └── pages.js
+├── sfdx-project.json
+├── src
+│   ├── fonts
+│   ├── platform
+│   ├── stylesheets
+│   ├── typescripts
+│   ├── utilities
+│   └── vendor
+├── test
+│   ├── Fake.ts
+│   ├── MockEnvironment.ts
+│   ├── Simulate.ts
+│   ├── test.ts
+│   └── typescripts
+├── tsconfig.json
+├── utils
+│   ├── cloudplatformAPI.js
+│   ├── metadata.js
+│   ├── middleware.js
+│   └── routesUtils.js
+├── views
+│   ├── pages
+│   ├── partials
+│   ├── templates
+│   └── utilities
+├── webpack.common.config.js
+├── webpack.dev.config.js
+├── webpack.prod.config.js
+└── webpack.test.config.js
+```
+
+
+No configuration or complicated folder structures, just the files you need to start off your project.
