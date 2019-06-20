@@ -82,10 +82,10 @@ module.exports = class extends Generator {
         message: 'What type of configuration do you need?',
         choices: ['simple', 'salesforce', {
           name: 'sitecore',
-          disabled: 'Unavailable at this time'
+          disabled: 'Not yet implemented'
         },{
           name: 'service-now',
-          disabled: 'Unavailable at this time'
+          disabled: 'Not yet implemented'
         }]
       },
       {
