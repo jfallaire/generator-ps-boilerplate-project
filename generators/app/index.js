@@ -80,7 +80,13 @@ module.exports = class extends Generator {
         type: 'list',
         name: 'integrationType',
         message: 'What type of configuration do you need?',
-        choices: ['simple', 'salesforce']
+        choices: ['simple', 'salesforce', {
+          name: 'sitecore',
+          disabled: 'Unavailable at this time'
+        },{
+          name: 'service-now',
+          disabled: 'Unavailable at this time'
+        }]
       },
       {
         name: 'description',
