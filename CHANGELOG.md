@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.1.0...v2.1.1) (2019-06-21)
+
+
+### Bug Fixes
+
+* [#2](https://github.com/jfallaire/generator-ps-boilerplate-project/issues/2) ([4faf686](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/4faf686))
+
 # [2.1.0](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.0.0...v2.1.0) (2019-06-20)
 
 
