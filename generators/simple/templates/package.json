@@ -68,9 +68,9 @@
         "iow:dev": "sphinx-autobuild -H $IOW_SERVER_IP_ADDRESS -p $IOW_SERVER_PORT -b html ./iow ./iow/_build/html",
         "iow:build": "sphinx-build -b html ./iow ./dist/iow/html",
         "semantic-release": "semantic-release",
-        "coveo:backup-fields": "platformclient download-fields $COVEO_ORG_ID $COVEO_API_KEY ./src/platform/backup",
-        "coveo:backup-extensions": "platformclient download-extensions $COVEO_ORG_ID $COVEO_API_KEY ./src/platform/backup",
-        "coveo:backup-sources": "platformclient download-sources $COVEO_ORG_ID $COVEO_API_KEY ./src/platform/backup",
+        "coveo:backup-fields": "platformclient download-fields $COVEO_ORG_ID $COVEO_API_KEY ./src/platform/backup/$COVEO_ORG_ID",
+        "coveo:backup-extensions": "platformclient download-extensions $COVEO_ORG_ID $COVEO_API_KEY ./src/platform/backup/$COVEO_ORG_ID",
+        "coveo:backup-sources": "platformclient download-sources $COVEO_ORG_ID $COVEO_API_KEY ./src/platform/backup/$COVEO_ORG_ID",
         "coveo:backup": "npm run coveo:backup-fields && npm run coveo:backup-extensions && npm run coveo:backup-sources"
     },
     "config": {
