@@ -189,3 +189,13 @@ npm run iow:dev
 ```
 
 then visit the webpage served at <http://localhost:8000>. Each time a change to the documentation source is detected, the HTML is rebuilt and the browser automatically reloaded.
+
+## Cloud organization backup
+
+To have a backup of your organization's fields, extensions and sources, run the following commands **inside the docker container**.
+
+```
+npm run coveo:backup
+```
+
+Make sure the `COVEO_API_KEY` configured in the `.env` file has the requried privileges to view fields, extensions and sources. Otherwise the Coveo REST API will return an error.
