@@ -12,6 +12,9 @@ module.exports = merge(common, {
     stats: {
       colors: true
     },
+    watchOptions: {
+      poll:true
+    },
     writeToDisk: true,
     contentBase: [
         path.join(__dirname, 'dist'),
