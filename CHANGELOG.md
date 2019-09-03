@@ -1,3 +1,20 @@
+# [2.2.0](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.1.1...v2.2.0) (2019-09-03)
+
+
+### Bug Fixes
+
+* [#10](https://github.com/jfallaire/generator-ps-boilerplate-project/issues/10) webpack common config output library name ([41e0547](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/41e0547))
+* [#11](https://github.com/jfallaire/generator-ps-boilerplate-project/issues/11) ([521cb69](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/521cb69))
+* [#12](https://github.com/jfallaire/generator-ps-boilerplate-project/issues/12) Package upgrade required ([58f411f](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/58f411f))
+* [#5](https://github.com/jfallaire/generator-ps-boilerplate-project/issues/5) ([c43eb66](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/c43eb66))
+* [#8](https://github.com/jfallaire/generator-ps-boilerplate-project/issues/8) Problem with "npm run build" ([af15598](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/af15598))
+* output library name for simple config ([ede1d15](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/ede1d15))
+
+
+### Features
+
+* Add script command to backup Coveo cloud org ([6c82a18](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/6c82a18))
+
 ## [2.1.1](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.1.0...v2.1.1) (2019-06-21)
 
 
