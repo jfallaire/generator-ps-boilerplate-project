@@ -20,7 +20,7 @@ module.exports = {
   entry: entries,
   output: {
     // See SwapVar.ts as for why this need to be a temporary variable
-    library: 'CoveoExtension',
+    library: '<%=`Coveo${capitalizeCustomerSafeName}Extension` %>',
     libraryTarget: 'umd',
     path: path.join(__dirname, 'dist'),
     publicPath: '/assets/',
