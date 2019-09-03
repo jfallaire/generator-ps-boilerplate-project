@@ -32,21 +32,21 @@
   },
   "homepage": "https://github.com/jfallaire/generator-ps-boilerplate-project#readme",
   "devDependencies": {
-    "@commitlint/cli": "^7.2.1",
-    "@commitlint/config-conventional": "^7.1.2",
-    "@semantic-release/changelog": "^3.0.1",
-    "@semantic-release/commit-analyzer": "^6.1.0",
-    "@semantic-release/git": "^7.0.5",
-    "@semantic-release/npm": "^5.1.9",
-    "@semantic-release/release-notes-generator": "^7.1.4",
-    "babel-eslint": "^7.1.1",
-    "commitizen": "^3.1.1",
-    "cz-conventional-changelog": "^2.1.0",
-    "husky": "^1.2.0",
-    "semantic-release": "^15.13.16",
-    "semver": "^5.6.0",
-    "standard-version": "^4.4.0",
-    "travis-deploy-once": "^5.0.9"
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/commit-analyzer": "^6.3.0",
+    "@semantic-release/git": "^7.0.16",
+    "@semantic-release/npm": "^5.1.15",
+    "@semantic-release/release-notes-generator": "^7.3.0",
+    "babel-eslint": "^10.0.3",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "husky": "^3.0.5",
+    "semantic-release": "^15.13.24",
+    "semver": "^6.3.0",
+    "standard-version": "^7.0.0",
+    "travis-deploy-once": "^5.0.11"
   },
   "husky": {
     "hooks": {
@@ -77,11 +77,11 @@
     ]
   },
   "dependencies": {
-    "chalk": "^2.4.1",
-    "lodash": "^4.17.11",
+    "chalk": "^2.4.2",
+    "lodash": "^4.17.15",
     "mkdirp": "^0.5.1",
     "parse-author": "^2.0.0",
-    "yeoman-generator": "^4.0.1",
+    "yeoman-generator": "^4.0.2",
     "yosay": "^2.0.2"
   }
 }
