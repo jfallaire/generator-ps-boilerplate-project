@@ -4,9 +4,13 @@ const Generator = require('yeoman-generator');
 const parseAuthor = require('parse-author');
 const _ = require('lodash');
 const extend = _.merge;
-const mkdirp = require('mkdirp');
 const chalk = require('chalk');
 const yosay = require('yosay');
+const updateNotifier = require('update-notifier');
+const pkg = require('../../package.json');
+ 
+// Checks for available update and returns an instance
+const notifier = updateNotifier({ pkg });
 
 module.exports = class extends Generator {
 
@@ -42,6 +46,8 @@ module.exports = class extends Generator {
 
   initializing() {
 
+    notifier.notify({ defer: false });
+    
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the fabulous ' + chalk.red('ps-boilerplate-project') + ' generator!'
@@ -218,31 +224,10 @@ module.exports = class extends Generator {
     }
   }
 
-  // cleanup() {
-  //   return new Promise((resolve, reject) => {
-     
-  //     resolve();
-  //   });
-  // }
-
-  // install() {
-    
-  //   if (!this.options.skipInstall) {
-  //     this.spawnCommand('make', ['setup']);
-  //   }
-  // }
-
   end() {
-
-    // this.conflicter.force = true;
-    // this.fs.delete('package.*.json');
-    // this.fs.delete('**/Project*.ts');
-
-    this.fs.commit([], ()=>{
-      this.log(chalk.green('Your project is now ready to run in a Docker container!'));
-      this.log('Setup your environment (refer to README.md) and then Run ' + chalk.green('make') + ' to build a Docker image and run your app in a container.');
-      this.log('Thanks for using CoveoPS project generator.');
-    });
+    this.log(chalk.green('Your project is now ready to run in a Docker container!'));
+    this.log('Setup your environment (refer to README.md) and then Run ' + chalk.green('make') + ' to build a Docker image and run your app in a container.');
+    this.log('Thanks for using CoveoPS project generator.');
   }
 
 };

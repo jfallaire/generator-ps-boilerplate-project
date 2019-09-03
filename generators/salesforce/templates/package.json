@@ -77,7 +77,11 @@
         "iow:build": "sphinx-build -b html ./iow ./dist/iow/html",
         "semantic-release": "semantic-release",
         "sfdx:deploy": "sfdx force:source:deploy -x ./manifest/package.xml -u $SFDX_AUTH_JWT_ALIAS",
-        "sfdx:retrieve": "sfdx force:source:retrieve -x ./manifest/package.xml -u $SFDX_AUTH_JWT_ALIAS"
+        "sfdx:retrieve": "sfdx force:source:retrieve -x ./manifest/package.xml -u $SFDX_AUTH_JWT_ALIAS",
+        "coveo:backup-fields": "platformclient download-fields $COVEO_ORG_ID $COVEO_API_KEY ./src/platform/backup/$COVEO_ORG_ID",
+        "coveo:backup-extensions": "platformclient download-extensions $COVEO_ORG_ID $COVEO_API_KEY ./src/platform/backup/$COVEO_ORG_ID",
+        "coveo:backup-sources": "platformclient download-sources $COVEO_ORG_ID $COVEO_API_KEY ./src/platform/backup/$COVEO_ORG_ID",
+        "coveo:backup": "npm run coveo:backup-fields && npm run coveo:backup-extensions && npm run coveo:backup-sources"
     },
     "config": {
         "commitizen": {

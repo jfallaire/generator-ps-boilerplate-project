@@ -16,6 +16,10 @@ To check that the Docker client and docker-compose is correctly installed, here 
   * `docker-compose --version`: Returns information on the docker-compose version running on your local machine.
   * `docker run hello-world`: Runs the hello-world image and verifies that Docker is correctly installed and functioning.
 
+> **_NOTE:_**  For Windows users, make sure Volume sharing is enabled. To enable volume sharing in the Docker CE for Windows :  
+> 1. Right-click **Docker for Windows** in notification area, and then select **Settings**. 
+> 2. Select **Shared Drives** and share the system drive along with the drive where the project resides.
+
 ## Setup environment
 
 Create the `.env` file at the root of this project using `.env.example` as starting point and make sure to replace all emptied variables `<...>` by the proper information of your organization.
@@ -94,8 +98,8 @@ docker-compose -f docker-compose.builder.yml run --rm install
 #### step 1:build
 
 ```
-docker-compose down &&
-docker-compose build && 
+docker-compose down
+docker-compose build 
 docker-compose up -d --remove-orphans
 ```
 
@@ -189,3 +193,13 @@ npm run iow:dev
 ```
 
 then visit the webpage served at <http://localhost:8000>. Each time a change to the documentation source is detected, the HTML is rebuilt and the browser automatically reloaded.
+
+## Cloud organization backup
+
+To have a backup of your organization's fields, extensions and sources, run the following commands **inside the docker container**.
+
+```
+npm run coveo:backup
+```
+
+Make sure the `COVEO_API_KEY` configured in the `.env` file has the requried privileges to view fields, extensions and sources. Otherwise the Coveo REST API will return an error.

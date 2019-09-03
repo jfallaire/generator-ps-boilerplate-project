@@ -12,7 +12,7 @@ const entries = {
 };
 
 const vfComponents = {
-  <% for (var i = 0; i < auraComponentSamples.length; i++) { %>
+  <% for (var i = 0; i < vfComponentSamples.length; i++) { %>
   '<%=vfComponentSamples[i]%>': { templatePath: path.resolve(__dirname, './views/partials/<%=vfComponentSamples[i]%>/search-interface.ejs'), templateData: {} },
   <% } %>
 }
