@@ -2,7 +2,7 @@ const path = require('path');
 require('dotenv-defaults').config();
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-var test = `${}`
+
 const plugins = [
   new CleanWebpackPlugin(),
   new MiniCssExtractPlugin({
