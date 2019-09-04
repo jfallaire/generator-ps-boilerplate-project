@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.2.1...v2.2.2) (2019-09-04)
+
+
+### Bug Fixes
+
+* remove typo variable in common webpack config ([3d3a9a3](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/3d3a9a3))
+
 ## [2.2.1](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.2.0...v2.2.1) (2019-09-04)
 
 
