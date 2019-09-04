@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.2.0...v2.2.1) (2019-09-04)
+
+
+### Bug Fixes
+
+* add missing update-notifier dependency ([15ab9c9](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/15ab9c9))
+
 # [2.2.0](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.1.1...v2.2.0) (2019-09-03)
 
 
