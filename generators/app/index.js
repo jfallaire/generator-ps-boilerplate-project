@@ -225,6 +225,10 @@ module.exports = class extends Generator {
   }
 
   end() {
+
+    this.fs.delete('**/.npmignore');
+    this.fs.delete('**/.yo-rc.json');
+    
     this.log(chalk.green('Your project is now ready to run in a Docker container!'));
     this.log('Setup your environment (refer to README.md) and then Run ' + chalk.green('make') + ' to build a Docker image and run your app in a container.');
     this.log('Thanks for using CoveoPS project generator.');
