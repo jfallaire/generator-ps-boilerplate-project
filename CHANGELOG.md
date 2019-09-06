@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.2.2...v2.2.3) (2019-09-06)
+
+
+### Bug Fixes
+
+* add empty npmignore to avoid missing gitignore ([cdca5a3](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/cdca5a3))
+
 ## [2.2.2](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.2.1...v2.2.2) (2019-09-04)
 
 
