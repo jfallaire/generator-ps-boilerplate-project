@@ -15,6 +15,5 @@ enter:
 clean:
 	docker-compose down
 coveobackup:
-	docker exec -it tsia-dev npm run coveo:backup
-
+	docker exec -it <%= customerSnakeCase %>-dev npm run coveo:backup
 .PHONY: default setup rebuild run dev enter clean
