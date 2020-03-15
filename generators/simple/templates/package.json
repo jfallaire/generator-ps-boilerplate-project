@@ -11,13 +11,9 @@
         "@commitlint/cli": "^7.6.0",
         "@commitlint/config-conventional": "^7.6.0",
         "@salesforce-ux/design-system": "^2.8.3",
-        "@semantic-release/changelog": "^3.0.2",
-        "@semantic-release/commit-analyzer": "^6.1.0",
-        "@semantic-release/git": "^7.0.8",
-        "@semantic-release/npm": "^5.1.7",
-        "@semantic-release/release-notes-generator": "^7.1.4",
         "@types/jasmine": "^3.3.12",
         "@types/underscore": "^1.8.14",
+        "autoprefixer": "^9.7.4",
         "clean-webpack-plugin": "^2.0.2",
         "commitizen": "^3.1.1",
         "coveo-search-ui": "2.5652.11",
@@ -38,6 +34,7 @@
         "mini-css-extract-plugin": "^0.6.0",
         "node-sass": "^4.12.0",
         "optimize-css-assets-webpack-plugin": "^5.0.1",
+        "postcss-loader": "^3.0.0",
         "puppeteer": "^1.16.0",
         "sass-loader": "^7.1.0",
         "semantic-release": "^15.13.12",
@@ -77,15 +74,5 @@
         "commitizen": {
             "path": "cz-conventional-changelog"
         }
-    },
-    "release": {
-        "branch": "master",
-        "plugins": [
-            "@semantic-release/commit-analyzer",
-            "@semantic-release/release-notes-generator",
-            "@semantic-release/changelog",
-            "@semantic-release/npm",
-            "@semantic-release/git"
-        ]
     }
 }
