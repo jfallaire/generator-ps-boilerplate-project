@@ -4,49 +4,41 @@
  Will run an Indexing Pipeline Extension script on a document
 """
 
-# make sure that your python version is newer than 2.7.9 otherwise you may have ssl error
-
-# Uncomment those lines in order to attach the debugger
-#import ctypes, sys, os
-#ctypes.windll.user32.MessageBoxA(0, 'Attach debugger to process {}'.format(os.getpid()), 'Debug', 0)
-
 import io
 import uuid
-import codecs
 import collections
 import os
 import json
+import datetime
+
 
 PERMISSION_IDENTITY_TYPE = {
     'user',
     'group',
+    'virtual_group',
     'virtualgroup',
     'unknown'
 }
 
 UTF16_STREAMS = {'body_text'}
+TEXT_STREAMS = {'body_text', 'body_html'}
 
 
-def _get_encoder(name, stream):
-    """
-    will wrapped stream into an encoder/decoder when the stream is known to be in utf16
-
-    :param str name: the name of the stream
-    :param BytesIO stream: the stream
-    :return:
-    """
-    if name.lower() in UTF16_STREAMS:
-        return codecs.EncodedFile(stream, 'utf-8', 'utf-16le', 'replace')
-    else:
-        return stream
+class RejectedException(Exception):
+    def __init__(self, *args):
+        super(RejectedException, self).__init__(*args)
+        
+        
+class SkippedException(Exception):
+    def __init__(self, *args):
+        super(SkippedException, self).__init__(*args)
 
 
-# noinspection PyPep8Naming,PyPep8
+
 class CaseInsensitiveDict(dict):
     @classmethod
     def _k(cls, key):
-        # noinspection PyUnresolvedReferences
-        return key.lower() if isinstance(key, basestring) else key
+        return key.lower() if isinstance(key, str) else key
 
     def __init__(self, *args, **kwargs):
         super(CaseInsensitiveDict, self).__init__(*args, **kwargs)
@@ -63,9 +55,6 @@ class CaseInsensitiveDict(dict):
 
     def __contains__(self, key):
         return super(CaseInsensitiveDict, self).__contains__(self.__class__._k(key))
-
-    def has_key(self, key):
-        return super(CaseInsensitiveDict, self).has_key(self.__class__._k(key))
 
     def pop(self, key, *args, **kwargs):
         return super(CaseInsensitiveDict, self).pop(self.__class__._k(key), *args, **kwargs)
@@ -107,21 +96,19 @@ class ApiLegacy(object):
         """
         self._api_v1 = api_v1
 
-    # noinspection PyUnusedLocal
     def log(self, id_, message, severity='normal'):
         self._api_v1.log(message, severity)
 
-    # noinspection PyUnusedLocal
     def get_meta_data(self, id_):
         return self._api_v1.get_meta_data()
 
-    # noinspection PyUnusedLocal
     def add_meta_data(self, id_, meta_data):
         self._api_v1.add_meta_data(meta_data)
 
 
 class ApiV1(object):
-    # noinspection PyProtectedMember
+    _json_valid_translation = {int, bool, float, None, str, datetime.datetime, datetime.date, bytes}
+
     def __init__(self, document_state):
         """
         First version of the document API
@@ -149,7 +136,7 @@ class ApiV1(object):
         :param str severity: the severity
         """
         if message is not None:
-            self._document_state.log_entries.append((message, severity))
+            self._document_state.log_entries.append((str(message), str(severity)))
 
     def get_meta_data(self):
         """
@@ -157,7 +144,7 @@ class ApiV1(object):
 
         :return: list[MetaDataValue]
         """
-        return self._document_state.current_meta_data + [ApiV1.MetaDataValue(self._document_state.origin, {k: v}) for k, v in self._document_state.meta_data_to_add.iteritems()]
+        return self._document_state.current_meta_data + [ApiV1.MetaDataValue(self._document_state.origin, {k: v}) for k, v in self._document_state.meta_data_to_add.items()]
 
     def get_meta_data_value(self, name, origin=None, reverse=True):
         """
@@ -178,17 +165,25 @@ class ApiV1(object):
 
         return []
 
+    @staticmethod
+    def _json_translation(obj):
+        """ will force as a string when the obj cannot be converted to json natively """
+        if type(obj) in ApiV1._json_valid_translation:
+            return obj
+        else:
+            return str(obj)
+
     def add_meta_data(self, meta_data):
         """
         add meta data to the document
 
         :param dict[str, str|list[str|Object]] meta_data: the meta data to add to the document
         """
-        for k, v in meta_data.iteritems():
-            if isinstance(v, collections.Iterable) and not isinstance(v, basestring):
-                self._document_state.meta_data_to_add[k.lower()] = [val if val is not None else '' for val in v]
+        for k, v in meta_data.items():
+            if isinstance(v, collections.abc.Iterable) and not isinstance(v, str):
+                self._document_state.meta_data_to_add[k.lower()] = [ApiV1._json_translation(val) if val is not None else '' for val in v]
             else:
-                self._document_state.meta_data_to_add[k.lower()] = [v if v is not None else '']
+                self._document_state.meta_data_to_add[k.lower()] = [ApiV1._json_translation(v) if v is not None else '']
 
     def get_permissions(self):
         """
@@ -210,7 +205,7 @@ class ApiV1(object):
 
         :param list[PermissionLevel] permission_levels: the final permissions
         """
-        if isinstance(permission_levels, collections.Iterable):
+        if isinstance(permission_levels, collections.abc.Iterable):
             self._document_state.final_permissions = permission_levels
         else:
             self._document_state.final_permissions = [permission_levels]
@@ -273,11 +268,19 @@ class ApiV1(object):
         stream.origin = self._document_state.origin
         self._document_state.streams_to_add.append(stream)
 
-    def reject(self):
+    def reject(self, reason=''):
         """
-        will set the document as rejected
+        will reject the document
         """
         self._document_state.reject_document = True
+        self._document_state.reject_reason = reason        
+        raise RejectedException(reason)
+        
+    def skip(self, reason=''):
+        """
+        will skip the current script execution
+        """
+        raise SkippedException(reason)
 
     @property
     def uri(self):
@@ -296,7 +299,7 @@ class ApiV1(object):
         """
         return {'URI': self.uri,
                 'MetaData': self.get_meta_data(),
-                'DataStream': self.get_data_streams(),
+                'DataStreams': self.get_data_streams(),
                 'Permissions': self.get_permissions()}
 
     #
@@ -309,20 +312,30 @@ class ApiV1(object):
 
             :param kwargs: the args
             """
-            super(ApiV1.JsonEncoder, self).__init__(kwargs)
+            super(ApiV1.JsonEncoder, self).__init__(**kwargs)
 
-        def default(self, o):
+        def default(self, obj):
             """
             Will encode to json and object
 
-            :param o: the object to encode
+            :param obj: the object to encode
             :return: the json for that object
             """
-            if isinstance(o, (ApiV1, ApiV1.MetaDataValue, ApiV1.PermissionLevel, ApiV1.PermissionSet,
-                              ApiV1.Permission, ApiV1.ReadOnlyDataStream, ApiV1.DataStream)):
-                return o._to_json()
+            if isinstance(obj, (ApiV1, ApiV1.MetaDataValue, ApiV1.PermissionLevel, ApiV1.PermissionSet,
+                                ApiV1.Permission, ApiV1.ReadOnlyDataStream, ApiV1.DataStream)):
+                return obj._to_json()
 
-            return super(ApiV1.JsonEncoder, self).default(o)
+            if isinstance(obj, datetime.datetime):
+                return int((obj - datetime.datetime(1970, 1, 1, tzinfo=obj.tzinfo)).total_seconds())
+
+            if isinstance(obj, datetime.date):
+                return int((obj - datetime.date(1970, 1, 1)).total_seconds())
+
+            try:
+                return super(ApiV1.JsonEncoder, self).default(obj)
+            except TypeError:
+                if obj.__str__:
+                    return obj.__str__()
 
     class DocumentState(object):
         def __init__(self, document_id, meta_data, permissions, streams, origin):
@@ -344,6 +357,7 @@ class ApiV1(object):
             self.streams_to_add = []
             self.log_entries = []
             self.reject_document = False
+            self.reject_reason = ''
 
         @property
         def result(self):
@@ -356,7 +370,8 @@ class ApiV1(object):
                                 self.final_permissions,
                                 self.streams_to_add,
                                 self.log_entries,
-                                self.reject_document)
+                                self.reject_document,
+                                self.reject_reason)
 
         def force_one_level_and_set(self):
             """
@@ -382,13 +397,13 @@ class ApiV1(object):
                 s.close()                
 
     class ReadOnlyDataStream(io.RawIOBase):
-        def __init__(self, name, origin, blob_id, inline_blob):
+        def __init__(self, name, origin, file_name, inline_blob):
             """
             A read-only data stream
 
             :param str name: stream name
             :param str origin: stream origin
-            :param str blob_id: the id in the blobstore
+            :param str file_name: the name of the file on disk
             :param str inline_blob: the content of the blob when inline
 
             """
@@ -397,26 +412,36 @@ class ApiV1(object):
             self._origin = origin.lower()
             self._filename = None
 
-            if blob_id:
-                self._filename = os.path.join(DocumentApi.working_path, blob_id)
+            is_text = name.lower() in TEXT_STREAMS
+            encoding = 'utf-16le' if name.lower() in UTF16_STREAMS else 'utf-8-sig' if self._name == 'body_html' else 'utf8'
+
+            if file_name:
+                self._filename = os.path.join(DocumentApi.working_path, file_name)
+                self._buffer = open(self._filename, 'rt', encoding=encoding) if is_text else io.FileIO(self._filename, 'rb')
                 self._size = os.stat(self._filename).st_size
-                self._buffer = io.FileIO(self._filename, 'r+b')
             else:
                 # make the inline blob act as a file
                 self._size = len(inline_blob)
-                self._buffer = io.BytesIO(inline_blob)
-
-            self._encoder = _get_encoder(self._name, self._buffer)
+                self._buffer = io.TextIOWrapper(io.BytesIO(inline_blob), encoding=encoding, errors='ignore') if is_text else io.BytesIO(inline_blob)
 
         def close(self):
             super(ApiV1.ReadOnlyDataStream, self).close()
-            self._encoder.close()
+            self._buffer.close()
 
         def readable(self):
             return True
 
         def read(self, n=-1):
-            return self._encoder.read(n)
+            return self._buffer.read(n)
+
+        def readlines(self, hint=-1):
+            return self._buffer.readlines(hint)
+
+        def readline(self, size=-1):
+            return self._buffer.readline(size)
+
+        def readinto(self, b):
+            self._buffer.readinto(b)
 
         def writable(self):
             return False
@@ -425,7 +450,7 @@ class ApiV1(object):
             return True
 
         def seek(self, offset, whence=0):
-            return self._encoder.seek(offset, whence)
+            return self._buffer.seek(offset, whence)
 
         @property
         def name(self):
@@ -453,32 +478,31 @@ class ApiV1(object):
                     'Name': self._name}
 
     class DataStream(io.RawIOBase):
-        def __init__(self, name, use_file=True):
+        def __init__(self, name, binary=True, use_file=True):
             """
             Data stream that we can write to
 
             :param str name: stream name
+            :param bool binary: whether to open the stream in binary mode
             :param bool use_file: whether to save the stream on disk or keep it in ram
             """
             super(ApiV1.DataStream, self).__init__()
             self._name = name.lower()
             self._filename = None
             self._origin = None
+            self._is_text = name.lower() in TEXT_STREAMS or not binary
 
-            # html must have an utf-8 bom
-            self._write_bom = self._name == 'body_html'
+            encoding = 'utf-16le' if name.lower() in UTF16_STREAMS else 'utf-8-sig' if self._name == 'body_html' else 'utf8'
 
             if use_file:
                 self._filename = str(uuid.uuid4())
-                self._buffer = io.FileIO(os.path.join(DocumentApi.working_path, self._filename), 'wb')
+                self._buffer = open(os.path.join(DocumentApi.working_path, self._filename), 'wt+', encoding=encoding, newline='\n') if self._is_text else io.FileIO(os.path.join(DocumentApi.working_path, self._filename), 'wb+')
             else:
-                self._buffer = io.BytesIO()
-
-            self._encoder = _get_encoder(self._name, self._buffer)
+                self._buffer = io.TextIOWrapper(io.BytesIO(), encoding=encoding, errors='ignore', newline='\n') if self._is_text else io.BytesIO()
 
         def close(self):
             super(ApiV1.DataStream, self).close()
-            self._encoder.close()
+            self._buffer.close()
 
         def readable(self):
             return True
@@ -486,36 +510,49 @@ class ApiV1(object):
         def read(self, n=-1):
             return self._buffer.read(n)
 
+        def readlines(self, hint=-1):
+            return self._buffer.readlines(hint)
+
+        def readline(self, size=-1):
+            return self._buffer.readline(size)
+
         def writable(self):
             return True
 
         def write(self, b):
-            if self._write_bom:
-                self._write_bom = False
-                self._encoder.write('\xEF\xBB\xBF')
-            
-            return self._encoder.write(b.encode('utf-8') if type(b) is unicode else b)
+            if self._is_text:
+                return self._buffer.write(b.decode(errors='ignore') if type(b) is bytes else b)
+            return self._buffer.write(b.encode('utf8') if type(b) is str else b)
+
+        def writelines(self, lines):
+            def convert_lines(lns):
+                # make sure all written lines end with a \n
+                for l in lns:
+                    line = l.decode(errors='ignore') if self._is_text and type(l) is bytes else l
+                    if self._is_text:
+                        yield line if line.endswith('\n') else line + '\n'
+                    else:
+                        yield line if line.endswith(b'\n') else line + b'\n'
+
+            self._buffer.writelines(convert_lines(lines))
 
         def flush(self):
-            self._encoder.flush()
+            self._buffer.flush()
 
         def seekable(self):
             return True
 
         def seek(self, offset, whence=0):
-            return self._encoder.seek(offset, whence)
+            return self._buffer.seek(offset, whence)
 
         def clear(self):
             """
             Will clear the content of the stream
             """
-            # set whether or not we'll have to write the bom on the next write operation
-            self._write_bom = self._name == 'body_html'
-
             # resize the stream to 0 bytes
-            self._encoder.truncate(0)
-            self._encoder.flush()
-            self._encoder.seek(0)
+            self._buffer.truncate(0)
+            self._buffer.flush()
+            self._buffer.seek(0)
 
         def _to_json(self):
             """
@@ -535,6 +572,10 @@ class ApiV1(object):
             return self._filename
 
         @property
+        def filename(self):
+            return self._filename
+
+        @property
         def origin(self):
             return self._origin
 
@@ -546,7 +587,8 @@ class ApiV1(object):
         def inline(self):
             if not self._filename:
                 self._buffer.seek(0)
-                return self._buffer.read()
+                # read from the buffer directly of the TextIOWrapper to have the binary representation when stream is inlined text
+                return self._buffer.buffer.read() if type(self._buffer) is io.TextIOWrapper else self._buffer.read()
 
     class MetaDataValue(object):
         def __init__(self, origin, values):
@@ -679,18 +721,14 @@ class ApiV1(object):
                        [ApiV1.PermissionSet.from_json(permission_set) for permission_set in json_.get('PermissionSets', [])])
 
     class Result(object):
-        def __init__(self, meta_data, permissions, streams, log_entries, rejected):
+        def __init__(self, meta_data, permissions, streams, log_entries, rejected, reject_reason):
             """
             The result of the script execution
-
-            :param meta_data:
-            :param list[PermissionLevel] permissions: the new document permissions
-            :param list|dict streams: the streams to add
-            :param list[(str, str)] log_entries: the log entries to add to the log
-            :param bool rejected: whether the document is rejected
             """
             self.meta_data = meta_data
             self.permissions = permissions
             self.streams = streams
             self.log_entries = log_entries
             self.rejected = rejected
+            self.reject_reason = reject_reason
+
