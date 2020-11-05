@@ -11,8 +11,6 @@ node_js:
 os:
   - osx
   - linux
-after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
