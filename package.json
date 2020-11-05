@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/jfallaire/generator-ps-boilerplate-project#readme",
   "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
+    "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@semantic-release/changelog": "^3.0.4",
     "@semantic-release/commit-analyzer": "^6.3.0",
@@ -40,12 +40,12 @@
     "@semantic-release/npm": "^5.1.15",
     "@semantic-release/release-notes-generator": "^7.3.0",
     "babel-eslint": "^10.0.3",
-    "commitizen": "^4.0.3",
+    "commitizen": "^4.2.2",
     "cz-conventional-changelog": "^3.0.2",
     "husky": "^3.0.5",
     "semantic-release": "^15.13.24",
     "semver": "^6.3.0",
-    "standard-version": "^8.0.1",
+    "standard-version": "^9.0.0",
     "travis-deploy-once": "^5.0.11"
   },
   "husky": {
@@ -78,7 +78,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "mkdirp": "^0.5.1",
     "parse-author": "^2.0.0",
     "update-notifier": "^3.0.1",
