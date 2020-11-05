@@ -16,3 +16,9 @@ after_success:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
+jobs:
+  include:
+    - stage: deploy
+      name: "npm release"
+      script: npm run semantic-release
+      if: branch = master
