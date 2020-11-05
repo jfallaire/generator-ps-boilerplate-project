@@ -45,7 +45,7 @@
     "husky": "^3.0.5",
     "semantic-release": "^15.13.24",
     "semver": "^6.3.0",
-    "standard-version": "^8.0.1",
+    "standard-version": "^9.0.0",
     "travis-deploy-once": "^5.0.11"
   },
   "husky": {
