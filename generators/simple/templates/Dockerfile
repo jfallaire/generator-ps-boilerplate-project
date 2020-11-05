@@ -1,4 +1,4 @@
-FROM python:3.7-alpine AS iow
+FROM python:3 AS iow
 WORKDIR /usr/local/app
 COPY iow/requirements.txt ./
 COPY src/platform/extensionRunner/requirements.txt ./requirements_extension.txt
@@ -6,7 +6,7 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install --no-cache-dir -r requirements_extension.txt
 
-FROM node:10-alpine AS base
+FROM node:12-alpine AS base
 ENV CHROME_BIN="/usr/bin/chromium-browser"\
     PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true"
 WORKDIR /usr/src/app

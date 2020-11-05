@@ -1,4 +1,4 @@
-FROM python:3.7-alpine AS iow
+FROM python:3 AS iow
 WORKDIR /usr/local/app
 COPY iow/requirements.txt ./
 COPY src/platform/extensionRunner/requirements.txt ./requirements_extension.txt
