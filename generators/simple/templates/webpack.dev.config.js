@@ -13,7 +13,8 @@ module.exports = merge(common, {
       colors: true
     },
     watchOptions: {
-      poll:true
+      aggregateTimeout: 300,
+      poll: 2000
     },
     writeToDisk: true,
     contentBase: [

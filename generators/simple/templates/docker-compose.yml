@@ -10,7 +10,7 @@ services:
       - .:/usr/src/app
     working_dir: /usr/src/app
     ports:
-      - ${SERVER_PORT}:3000
+      - ${SERVER_PORT}:${SERVER_PORT}
       - ${IOW_SERVER_PORT}:${IOW_SERVER_PORT}
       - ${KARMA_SERVER_PORT}:9876
 volumes:
