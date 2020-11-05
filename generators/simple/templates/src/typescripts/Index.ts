@@ -6,9 +6,8 @@ export * from './custo/<%= capitalizeCustomerSafeName %>Custo';
 
 // your ui components here
 
-
-import { swapVar } from './SwapVar';
-swapVar(this);
+import { swapVar } from '@coveops/turbo-core';
+swapVar(this)
 
 
 // cultures for webpack
