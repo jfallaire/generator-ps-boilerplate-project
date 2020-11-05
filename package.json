@@ -45,8 +45,7 @@
     "husky": "^3.0.5",
     "semantic-release": "^15.13.24",
     "semver": "^6.3.0",
-    "standard-version": "^9.0.0",
-    "travis-deploy-once": "^5.0.11"
+    "standard-version": "^9.0.0"
   },
   "husky": {
     "hooks": {
@@ -58,8 +57,7 @@
     "release": "standard-version -a",
     "postrelease": "git push --follow-tags",
     "test": "echo \"Error: no test specified\"",
-    "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once"
+    "semantic-release": "semantic-release"
   },
   "config": {
     "commitizen": {
