@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.3.0...v2.3.1) (2020-11-12)
+
+
+### Bug Fixes
+
+* fixes dependencies vulnerabilities for simple config ([8487adf](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/8487adff5d0fe4dd6a62fee11d0a9ed783a01f12))
+
 # [2.3.0](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.2.3...v2.3.0) (2020-11-05)
 
 
