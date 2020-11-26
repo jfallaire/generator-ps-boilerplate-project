@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.3.1...v2.3.2) (2020-11-26)
+
+
+### Bug Fixes
+
+* updates py requirements and adds missing bracket in package json ([6eda5b6](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/6eda5b605938a8e6ce60d2376c63a617f59fcaad))
+
 ## [2.3.1](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.3.0...v2.3.1) (2020-11-12)
 
 
