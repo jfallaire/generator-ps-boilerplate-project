@@ -1,3 +1,11 @@
+## [2.3.3](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.3.2...v2.3.3) (2020-11-27)
+
+
+### Bug Fixes
+
+* fixes package.json for sfdc config ([d42b6d2](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/d42b6d25abf1bb3fc3d0a1781c4af581b5cf56ba))
+* removes FORCE_CODE_SYMLINK_PATH ([dfa636e](https://github.com/jfallaire/generator-ps-boilerplate-project/commit/dfa636edefd2c6a747b01f56c0277272e537e9f8))
+
 ## [2.3.2](https://github.com/jfallaire/generator-ps-boilerplate-project/compare/v2.3.1...v2.3.2) (2020-11-26)
 
 
