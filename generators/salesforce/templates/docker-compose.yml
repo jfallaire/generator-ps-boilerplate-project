@@ -9,7 +9,6 @@ services:
       - nodemodules_<%= customerSnakeCase %>:/usr/src/app/node_modules
       - .:/usr/src/app
       - ${SFDX_AUTH_JWT_PRIVATE_KEY_PATH}
-      - ${FORCE_CODE_SYMLINK_PATH}
     working_dir: /usr/src/app
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
